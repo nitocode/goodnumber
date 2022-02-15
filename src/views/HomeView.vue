@@ -2,22 +2,47 @@
 import { createPinia } from "pinia";
 import { ref } from "vue";
 const gap = ref(0);
+const attemptLimit = ref(4);
+const userAttempt = ref(0);
+const answerList = ref([]);
 const answer = ref();
-const hasAnswered = ref(false);
+const hasFound = ref(false);
+const gameOver = ref(false);
 const question = ref({
   title: "Date de création de twitch ?",
   answer: 2011,
   linkForMore: "https://fr.wikipedia.org/wiki/Twitch",
 });
-const validate = () => {
-  console.log("answer:", answer.value);
-  gap.value = answer.value - question.value.answer;
-  if (gap.value === 0) {
-    console.log("CONGRATS");
+
+const addAnswerToAttemptList = (answer) => {
+  let gap = "=";
+  if (question.value.answer - answer < 0) {
+    gap = "-";
+  } else if (question.value.answer - answer > 0) {
+    gap = "+";
   } else {
-    console.log("OH NO, gap:", gap);
+    gap = "=";
   }
-  hasAnswered.value = true;
+  answerList.value.push({
+    answer: answer,
+    gap,
+  });
+};
+
+const validate = () => {
+  userAttempt.value += 1;
+  gap.value = question.value.answer - answer.value;
+
+  if (gap.value === 0) {
+    hasFound.value = true;
+    gameOver.value = true;
+  } else {
+    if (userAttempt.value === attemptLimit.value) {
+      hasFound.value = false;
+      gameOver.value = true;
+    }
+  }
+  addAnswerToAttemptList(answer.value);
 };
 
 const getSquaredAnswer = (answerLength, isUserAnswer) => {
@@ -82,7 +107,11 @@ const share = () => {
 <template>
   <main>
     <h1>{{ question.title }}</h1>
-    <div v-if="!hasAnswered">
+    <div v-if="!hasFound && !gameOver">
+      <div v-for="(answerObj, index) in answerList" :key="index">
+        Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
+        {{ answerObj.gap }}
+      </div>
       <div>
         <input v-model="answer" type="number" />
       </div>
@@ -90,14 +119,21 @@ const share = () => {
       <button @click="validate()">VALIDER</button>
     </div>
     <div v-else>
-      <div v-if="gap === 0">
-        <p>Bonne réponse</p>
+      <div v-if="hasFound">
+        <p>BRAVO !!!</p>
+        <p>
+          Vous avez trouvé la bonne réponse en
+          {{ answerList.length }} tentatives !
+        </p>
       </div>
       <div v-else>
-        <p>Mauvaise réponse<br /></p>
+        <p>Dommage !!!</p>
         <p>La bonne réponse est : {{ question.answer }}</p>
-        <p>Votre réponse : {{ answer }}</p>
-        <p>Ecart : {{ gap }}</p>
+      </div>
+
+      <div v-for="(answerObj, index) in answerList" :key="index">
+        Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
+        {{ answerObj.gap }}
       </div>
 
       <div v-if="question.linkForMore">
