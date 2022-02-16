@@ -9,6 +9,7 @@ const answer = ref();
 const hasFound = ref(false);
 const gameOver = ref(false);
 const question = ref({
+  id: 1,
   title: "Date de création de twitch ?",
   answer: 2011,
   linkForMore: "https://fr.wikipedia.org/wiki/Twitch",
@@ -45,54 +46,17 @@ const validate = () => {
   addAnswerToAttemptList(answer.value);
 };
 
-const getSquaredAnswer = (answerLength, isUserAnswer) => {
-  let squareText = "";
-  for (let i = 0; i < answerLength; i++) {
-    squareText += isUserAnswer ? "🟨" : "🟩";
-  }
-  return squareText;
-};
-
-const getUserText = (userAnswer, goodAnswer) => {
-  let userText = "";
-  let goodAnswerArray = goodAnswer.toString().split("");
-  let userAnswerArray = userAnswer.toString().split("");
-  for (let i = goodAnswerArray.length; i > 0; i--) {
-    console.log("goodAnswerArray[i]", goodAnswerArray[i - 1]);
-    console.log("eee[i]", userAnswerArray[i - 1]);
-    if (goodAnswerArray[i - 1] === userAnswerArray[i - i]) {
-      userText += "g";
-    } else {
-      userText += "y";
-    }
-  }
-  userText = userText.split("").reverse().join("");
-
-  userText = userText.replace(/g/g, "🟩");
-  userText = userText.replace(/y/g, "🟨");
-
-  console.log("userText", userText);
-  return userText;
-};
-
 const share = () => {
-  let textToShare = "";
-  const greenSquareText = getSquaredAnswer(
-    question.value.answer.toString().length,
-    false
-  );
-  // const yellowSquareText = getSquaredAnswer(
-  //   question.value.answer.toString().length,
-  //   true
-  // );
+  let textToShare = `Good number #${question.value.id}: ${
+    userAttempt.value === attemptLimit.value ? "😞" : userAttempt.value
+  }/${attemptLimit.value} \r\n\r\n`;
 
-  if (gap.value === 0) {
-    textToShare = greenSquareText;
-  } else {
-    textToShare = `${getUserText(answer.value, question.value.answer)} -- [${
-      gap.value
-    }] -- > ${greenSquareText}`;
-  }
+  answerList.value.forEach((a, index) => {
+    textToShare += `Tentative n°${index + 1} : ${a.gap}\r\n`;
+  });
+
+  textToShare += "\r\ngoodnumber.nitocode.com";
+
   navigator.clipboard.writeText(textToShare).then(
     function () {
       console.log("Async: Copying to clipboard was successful!");
@@ -106,7 +70,8 @@ const share = () => {
 
 <template>
   <main>
-    <h1>{{ question.title }}</h1>
+    <h1>GOOD NUMBER</h1>
+    <h2>{{ question.title }}</h2>
     <div v-if="!hasFound && !gameOver">
       <div v-for="(answerObj, index) in answerList" :key="index">
         Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
@@ -123,7 +88,10 @@ const share = () => {
         <p>BRAVO !!!</p>
         <p>
           Vous avez trouvé la bonne réponse en
-          {{ answerList.length }} tentatives !
+          {{ answerList.length }} tentative{{
+            answerList.length > 1 ? "s" : ""
+          }}
+          !
         </p>
       </div>
       <div v-else>
