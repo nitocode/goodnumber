@@ -69,8 +69,7 @@ const share = () => {
 </script>
 
 <template>
-  <main>
-    <h1>GOOD NUMBER</h1>
+  <main class="text-center">
     <h2>{{ question.title }}</h2>
     <div v-if="!hasFound && !gameOver">
       <div v-for="(answerObj, index) in answerList" :key="index">
@@ -118,3 +117,5 @@ const share = () => {
     </div>
   </main>
 </template>
+
+<style scoped></style>
