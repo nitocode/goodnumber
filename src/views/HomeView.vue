@@ -1,19 +1,18 @@
 <script setup>
 import { createPinia } from "pinia";
 import { ref } from "vue";
+import questions from "@/assets/questions";
+import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
+console.log("daySinceBeginning", daySinceBeginning());
 const gap = ref(0);
 const userAttempt = ref(0);
 const answerList = ref([]);
 const answer = ref();
 const hasFound = ref(false);
 const gameOver = ref(false);
-const question = ref({
-  id: 1,
-  title: "Date de création de twitch&nbsp;?",
-  answer: 2011,
-  linkForMore: "https://fr.wikipedia.org/wiki/Twitch",
-  attemptLimit: 4,
-});
+const resultCopied = ref(false);
+
+const question = ref(questions[daySinceBeginning()]);
 
 const addAnswerToAttemptList = (answer) => {
   let gap = "✅";
@@ -61,7 +60,7 @@ const share = () => {
 
   navigator.clipboard.writeText(textToShare).then(
     function () {
-      console.log("Async: Copying to clipboard was successful!");
+      resultCopied.value = true;
     },
     function (err) {
       console.error("Async: Could not copy text: ", err);
@@ -80,11 +79,13 @@ const share = () => {
             (Tentative restante: {{ question.attemptLimit - userAttempt }})
           </p>
         </div>
-        <div v-for="(answerObj, index) in answerList" :key="index">
-          <p class="text-xl lg:text-lg my-4">
-            Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
-            {{ answerObj.gap }}
-          </p>
+        <div>
+          <div v-for="(answerObj, index) in answerList" :key="index">
+            <p class="text-xl lg:text-lg my-4">
+              Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
+              {{ answerObj.gap }}
+            </p>
+          </div>
         </div>
       </div>
       <div>
@@ -102,7 +103,7 @@ const share = () => {
         <p class="text-3xl my-10">BRAVO&nbsp;!!!</p>
         <p>
           Vous avez trouvé la bonne réponse en
-          {{ answerList.length }} tentative{{
+          {{ answerList.length }}&nbsp;tentative{{
             answerList.length > 1 ? "s" : ""
           }}&nbsp;!
         </p>
@@ -112,7 +113,9 @@ const share = () => {
         <p>La bonne réponse est : {{ question.answer }}</p>
       </div>
 
-      <p class="text-xl my-4">Résumé</p>
+      <div class="separator"></div>
+
+      <p class="text-xl mb-4">Résumé</p>
       <div v-for="(answerObj, index) in answerList" :key="index">
         <p class="text-xl my-4">
           Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
@@ -120,19 +123,25 @@ const share = () => {
         </p>
       </div>
 
-      <div class="my-8">
+      <div class="separator"></div>
+
+      <div class="">
         <button class="btn-numdle" @click="share()">
-          Partager mon résultat
+          <span v-if="!resultCopied">Partager mon résultat</span>
+          <span v-else>Résultat copié !</span>
         </button>
       </div>
-
       <div v-if="question.linkForMore">
-        <p class="text-xl mb-2">En savoir plus</p>
-        <p>
-          <a class="underline" :href="question.linkForMore" target="_blank">{{
-            question.linkForMore
-          }}</a>
-        </p>
+        <div class="separator"></div>
+
+        <div>
+          <p class="text-xl mb-2">En savoir plus</p>
+          <p>
+            <a class="underline" :href="question.linkForMore" target="_blank">{{
+              question.linkForMore
+            }}</a>
+          </p>
+        </div>
       </div>
     </div>
   </main>
