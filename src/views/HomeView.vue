@@ -44,6 +44,21 @@ const validate = () => {
       }
     }
     addAnswerToAttemptList(answer.value);
+
+    answer.value = "";
+
+    setTimeout(() => {
+      const attemptTextElt = document.querySelector(
+        `#text-attempt-${answerList.value.length - 1}`
+      );
+
+      if (attemptTextElt) {
+        attemptTextElt.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      }
+    }, 200);
   }
 };
 
@@ -76,15 +91,23 @@ const share = () => {
         <div class="my-10">
           <h2 class="text-3xl" v-html="question.title"></h2>
           <p class="mt-2">
-            (Tentative restante: {{ question.attemptLimit - userAttempt }})
+            <span v-if="question.attemptLimit - userAttempt > 1"
+              >(Tentatives restantes:
+              {{ question.attemptLimit - userAttempt }})</span
+            >
+            <span class="font-bold text-amber-400" v-else
+              >(Dernière tentative&nbsp;!)</span
+            >
           </p>
         </div>
-        <div>
-          <div v-for="(answerObj, index) in answerList" :key="index">
-            <p class="text-xl lg:text-lg my-4">
-              Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
-              {{ answerObj.gap }}
-            </p>
+        <div class="h-[20vh] overflow-hidden">
+          <div class="h-[20vh] overflow-scroll py-10 attempt-content">
+            <div v-for="(answerObj, index) in answerList" :key="index">
+              <p :id="`text-attempt-${index}`" class="text-xl lg:text-lg my-4">
+                Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
+                {{ answerObj.gap }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -147,4 +170,12 @@ const share = () => {
   </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.attempt-content::-webkit-scrollbar {
+  display: none;
+}
+.attempt-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>

@@ -24,8 +24,8 @@ const emit = defineEmits(["close"]);
         </div>
         <h2 class="font-bold text-lg my-4">Comment ça marche&nbsp;?</h2>
         <p>
-          Numdle est un quiz quotidien où vous devrez trouver la bonne réponse
-          en un nombre de tentative limité.
+          Numdle est un quiz quotidien où vous devez trouver la bonne réponse en
+          un nombre de tentatives limité.
         </p>
         <p>En cas de mauvaise réponse un indice vous sera donné.</p>
         <div class="separator"></div>
@@ -34,7 +34,7 @@ const emit = defineEmits(["close"]);
         <p>1400 : 🔻<br />Le résultat à trouver est plus petit.</p>
         <div class="separator"></div>
         <p>Comparez ensuite votre résultat avec vos amis&nbsp;!</p>
-        <p>Bonne chance !</p>
+        <p>Bonne chance&nbsp;!</p>
       </div>
     </div>
   </div>

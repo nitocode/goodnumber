@@ -8,7 +8,7 @@ const questions = [
   },
   {
     id: 2,
-    title: "Date de la création de la ville de new-york ?",
+    title: "Date de la création de la ville de new‑york ?",
     answer: 1624,
     linkForMore: "https://fr.wikipedia.org/wiki/New_York",
     attemptLimit: 6,
