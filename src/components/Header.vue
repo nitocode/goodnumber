@@ -7,7 +7,7 @@ const emit = defineEmits(["open"]);
 </script>
 <template>
   <header class="flex justify-between items-center mx-4 mb-8">
-    <h1 class="text-2xl">NUMDLE</h1>
+    <h1 class="text-2xl">SMART NUMDLE</h1>
     <div class="flex justify-between w-[80px]">
       <!-- <p>Stat</p> -->
       <img
@@ -18,7 +18,7 @@ const emit = defineEmits(["open"]);
       />
       <a
         class="cursor-pointer"
-        href="https://github.com/nitocode/numdle"
+        href="https://github.com/nitocode/smartnumdle"
         target="_blank"
       >
         <img src="@/assets/github.png" alt="Github code source"

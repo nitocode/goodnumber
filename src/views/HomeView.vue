@@ -65,14 +65,16 @@ const validate = () => {
 
 const share = () => {
   let textToShare = `Good number #${question.value.id}: ${
-    userAttempt.value === question.value.attemptLimit ? "😞" : userAttempt.value
+    userAttempt.value === question.value.attemptLimit && !hasFound.value
+      ? "😞"
+      : userAttempt.value
   }/${question.value.attemptLimit} \r\n\r\n`;
 
   answerList.value.forEach((a, index) => {
     textToShare += `Tentative n°${index + 1} : ${a.gap}\r\n`;
   });
 
-  textToShare += "\r\nnumdle.nitocode.com";
+  textToShare += "\r\nsmartnumdle.nitocode.com";
 
   navigator.clipboard.writeText(textToShare).then(
     function () {
@@ -136,14 +138,14 @@ const share = () => {
       </div>
       <div v-else>
         <p class="text-3xl my-10">Dommage&nbsp;!!!</p>
-        <p>La bonne réponse est : {{ question.answer }}</p>
+        <p class="text-xl">La bonne réponse est : {{ question.answer }}</p>
       </div>
 
       <div class="separator"></div>
 
-      <p class="text-xl mb-4">Résumé</p>
+      <p class="text-lg mb-4">Résumé</p>
       <div v-for="(answerObj, index) in answerList" :key="index">
-        <p class="text-xl my-4">
+        <p class="text-md my-4">
           Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
           {{ answerObj.gap }}
         </p>
@@ -163,9 +165,12 @@ const share = () => {
         <div>
           <p class="text-xl mb-2">En savoir plus</p>
           <p>
-            <a class="underline" :href="question.linkForMore" target="_blank">{{
-              question.linkForMore
-            }}</a>
+            <a
+              class="underline break-words"
+              :href="question.linkForMore"
+              target="_blank"
+              >{{ question.linkForMore }}</a
+            >
           </p>
         </div>
       </div>

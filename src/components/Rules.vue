@@ -24,8 +24,8 @@ const emit = defineEmits(["close"]);
         </div>
         <h2 class="font-bold text-lg my-4">Comment ça marche&nbsp;?</h2>
         <p>
-          Numdle est un quiz quotidien où vous devez trouver la bonne réponse en
-          un nombre de tentatives limité.
+          Smart Numdle est un quiz quotidien où vous devez trouver la bonne
+          réponse en un nombre de tentatives limité.
         </p>
         <p>En cas de mauvaise réponse un indice vous sera donné.</p>
         <div class="separator"></div>
