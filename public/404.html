@@ -14,7 +14,10 @@
     <title>Smart Numdle</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script>
+      const path = window.location.pathname.slice(1);
+      localStorage.setItem('path', path);
+      window.location.href='../';
+    </script>
   </body>
 </html>
