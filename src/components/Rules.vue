@@ -12,7 +12,7 @@ const emit = defineEmits(["close"]);
     @click.self="closeRules()"
   >
     <div
-      class="rules-container border-2 border-white rounded fixed max-w-[400px] w-5/6 h-[500px] max-h-[90vh] mx-auto left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-y-scroll"
+      class="rules-container border-2 border-white rounded fixed max-w-[400px] w-5/6 h-[500px] max-h-[90vh] mx-auto left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-y-scroll hide-scroll"
     >
       <div class="text-center p-4 text-sm">
         <div class="fixed top-4 right-4" @click="closeRules()">

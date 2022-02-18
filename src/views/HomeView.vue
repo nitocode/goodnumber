@@ -101,7 +101,7 @@ const share = () => {
           </p>
         </div>
         <div class="h-[20vh] overflow-hidden">
-          <div class="h-[20vh] overflow-scroll py-10 attempt-content">
+          <div class="h-[20vh] overflow-scroll py-10 hide-scroll">
             <div v-for="(answerObj, index) in answerList" :key="index">
               <p :id="`text-attempt-${index}`" class="text-xl lg:text-lg my-4">
                 Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
@@ -170,12 +170,4 @@ const share = () => {
   </main>
 </template>
 
-<style lang="scss" scoped>
-.attempt-content::-webkit-scrollbar {
-  display: none;
-}
-.attempt-content {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-</style>
+<style lang="scss" scoped></style>
