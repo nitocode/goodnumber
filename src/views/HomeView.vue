@@ -3,7 +3,7 @@ import { createPinia } from "pinia";
 import { ref } from "vue";
 import questions from "@/assets/questions";
 import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
-console.log("daySinceBeginning", daySinceBeginning());
+
 const gap = ref(0);
 const userAttempt = ref(0);
 const answerList = ref([]);
@@ -46,6 +46,7 @@ const validate = () => {
     addAnswerToAttemptList(answer.value);
 
     answer.value = "";
+    document.getElementById("input-answer").focus();
 
     setTimeout(() => {
       const attemptTextElt = document.querySelector(
@@ -58,7 +59,7 @@ const validate = () => {
           block: "end",
         });
       }
-    }, 200);
+    }, 100);
   }
 };
 
@@ -113,9 +114,11 @@ const share = () => {
       </div>
       <div>
         <input
+          id="input-answer"
           class="text-black px-4 py-2 text-xl"
           v-model="answer"
           type="number"
+          @keyup.enter="validate()"
         />
       </div>
       <br />
