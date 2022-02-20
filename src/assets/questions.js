@@ -1,6 +1,7 @@
 const questions = [
   {
     id: 1,
+    date: "2022-2-20",
     title: "Quelle est l'année de création de twitch&nbsp;?",
     answer: 2011,
     linkForMore: "https://fr.wikipedia.org/wiki/Twitch",
@@ -8,6 +9,7 @@ const questions = [
   },
   {
     id: 2,
+    date: "2022-2-21",
     title:
       "Combien existe-t-il de langues dans le monde&nbsp;? (en centaines ou milliers)",
     answer: 7000,
@@ -17,6 +19,7 @@ const questions = [
   },
   {
     id: 3,
+    date: "2022-2-22",
     title: "Quelle est l'année de fondation de la ville de New‑York&nbsp;?",
     answer: 1624,
     linkForMore: "https://fr.wikipedia.org/wiki/New_York",
@@ -24,6 +27,7 @@ const questions = [
   },
   {
     id: 4,
+    date: "2022-2-23",
     title: "Combien existe-t-il de constellations astronomiques&nbsp;?",
     answer: 88,
     linkForMore: "https://fr.wikipedia.org/wiki/Liste_des_constellations",
@@ -31,6 +35,7 @@ const questions = [
   },
   {
     id: 5,
+    date: "2022-2-24",
     title: "Quelle est la hauteur de la Tour Eiffel&nbsp;? (en mètres)",
     answer: 324,
     linkForMore: "https://fr.wikipedia.org/wiki/Tour_Eiffel",
@@ -38,6 +43,7 @@ const questions = [
   },
   {
     id: 6,
+    date: "2022-2-25",
     title: "Quel est le plus gros QI du monde&nbsp;?",
     answer: 230,
     linkForMore: "https://fr.wikipedia.org/wiki/Quotient_intellectuel#Records",
@@ -45,6 +51,7 @@ const questions = [
   },
   {
     id: 7,
+    date: "2022-2-26",
     title:
       "Combien d'épisodes possède la plus longue série terminée au monde&nbsp;?",
     answer: 18262,
@@ -53,6 +60,7 @@ const questions = [
   },
   {
     id: 8,
+    date: "2022-2-27",
     title: "Combien d'os possède un corps humain adulte&nbsp;?",
     answer: 206,
     linkForMore: "https://fr.wikipedia.org/wiki/Squelette_humain",

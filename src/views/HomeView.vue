@@ -1,23 +1,35 @@
 <script setup>
-import { createPinia } from "pinia";
-import { ref } from "vue";
+import { useHistoryrStore } from "@/stores/history";
+import { ref, onMounted } from "vue";
 import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
 import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
 
 const { toClipboard } = useClipboard();
 
+const historyStore = useHistoryrStore();
+
 const gap = ref(0);
 const userAttempt = ref(0);
 const answerList = ref([]);
 const answer = ref();
 const hasFound = ref(false);
-const gameOver = ref(false);
+const hasFinished = ref(false);
 const resultCopied = ref(false);
 
 const question = ref(questions[daySinceBeginning()]);
 
-const addAnswerToAttemptList = (answer) => {
+const initHistory = () => {
+  const todaysQuestion = historyStore.getTodaysQuestion;
+  if (todaysQuestion) {
+    answerList.value = todaysQuestion.attempts[0];
+    userAttempt.value = answerList.value.length;
+    hasFound.value = todaysQuestion.hasFound;
+    hasFinished.value = todaysQuestion.hasFinished;
+  }
+};
+
+const addAnswerToAttemptList = (answer, hasFound, hasFinished) => {
   let gap = "✅";
   if (question.value.answer - answer < 0) {
     gap = "🔻";
@@ -30,6 +42,13 @@ const addAnswerToAttemptList = (answer) => {
     answer: answer,
     gap,
   });
+
+  historyStore.addAttemptToQuestion(
+    question.value,
+    answerList.value,
+    hasFound,
+    hasFinished
+  );
 };
 
 const validate = () => {
@@ -38,15 +57,20 @@ const validate = () => {
     gap.value = question.value.answer - answer.value;
 
     if (gap.value === 0) {
+      // WINNER CASE
       hasFound.value = true;
-      gameOver.value = true;
-    } else {
-      if (userAttempt.value === question.value.attemptLimit) {
-        hasFound.value = false;
-        gameOver.value = true;
+      hasFinished.value = true;
+      historyStore.currentStreak++;
+      if (historyStore.currentStreak > historyStore.bestStreak) {
+        historyStore.bestStreak++;
       }
+    } else if (userAttempt.value === question.value.attemptLimit) {
+      // LOSER CASE
+      hasFound.value = false;
+      hasFinished.value = true;
+      historyStore.currentStreak = 0;
     }
-    addAnswerToAttemptList(answer.value);
+    addAnswerToAttemptList(answer.value, hasFound.value, hasFinished.value);
 
     answer.value = "";
     document.getElementById("input-answer").focus();
@@ -86,11 +110,15 @@ const share = async () => {
     console.error(e);
   }
 };
+
+onMounted(() => {
+  initHistory();
+});
 </script>
 
 <template>
   <main class="text-center">
-    <div v-if="!hasFound && !gameOver">
+    <div v-if="!hasFound && !hasFinished">
       <div class="h-[50vh]">
         <div class="my-10">
           <h2 class="text-3xl" v-html="question.title"></h2>
