@@ -8,19 +8,19 @@ const questions = [
   },
   {
     id: 2,
-    title: "Quelle est l'année de fondation de la ville de New‑York&nbsp;?",
-    answer: 1624,
-    linkForMore: "https://fr.wikipedia.org/wiki/New_York",
-    attemptLimit: 6,
-  },
-  {
-    id: 3,
     title:
       "Combien existe-t-il de langues dans le monde&nbsp;? (en centaines ou milliers)",
     answer: 7000,
     linkForMore:
       "https://1to1progress.fr/blog/2021/04/30/combien-de-langues-dans-le-monde/",
-    attemptLimit: 4,
+    attemptLimit: 5,
+  },
+  {
+    id: 3,
+    title: "Quelle est l'année de fondation de la ville de New‑York&nbsp;?",
+    answer: 1624,
+    linkForMore: "https://fr.wikipedia.org/wiki/New_York",
+    attemptLimit: 6,
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const questions = [
     attemptLimit: 10,
   },
   {
-    id: 7,
+    id: 8,
     title: "Combien d'os possède un corps humain adulte&nbsp;?",
     answer: 206,
     linkForMore: "https://fr.wikipedia.org/wiki/Squelette_humain",

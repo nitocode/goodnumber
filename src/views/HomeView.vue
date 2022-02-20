@@ -67,7 +67,7 @@ const validate = () => {
 };
 
 const share = async () => {
-  let textToShare = `Good number #${question.value.id}: ${
+  let textToShare = `Smart numdle #${question.value.id}: ${
     userAttempt.value === question.value.attemptLimit && !hasFound.value
       ? "😞"
       : userAttempt.value
@@ -77,7 +77,7 @@ const share = async () => {
     textToShare += `Tentative n°${index + 1} : ${a.gap}\r\n`;
   });
 
-  textToShare += "\r\nsmartnumdle.nitocode.com";
+  textToShare += "\r\nhttps://smartnumdle.nitocode.com";
 
   try {
     await toClipboard(textToShare);
@@ -143,6 +143,9 @@ const share = async () => {
         <p class="text-3xl my-10">Dommage&nbsp;!!!</p>
         <p class="text-xl">La bonne réponse est : {{ question.answer }}</p>
       </div>
+      <p class="text-sm italic mt-2">
+        À demain pour une nouvelle question&nbsp;!
+      </p>
 
       <div class="separator"></div>
 

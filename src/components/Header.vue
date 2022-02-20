@@ -11,7 +11,7 @@ const emit = defineEmits(["open"]);
     <div class="flex flex-row-reverse justify-between w-[80px]">
       <!-- <p>Stat</p> -->
       <img
-        class="w-[32px] h-[32px]"
+        class="w-[32px] h-[32px] cursor-pointer"
         @click="openRules()"
         src="@/assets/rules.svg"
         alt="icone pour ouvrir les règles du jeu"
