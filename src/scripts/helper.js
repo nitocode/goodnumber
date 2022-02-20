@@ -1,5 +1,5 @@
 const getNumberOfDaysSinceBeginning = () => {
-  const initialDate = new Date("02-17-2022");
+  const initialDate = new Date("02-20-2022");
   const currentDate = new Date();
 
   const dayDiff =

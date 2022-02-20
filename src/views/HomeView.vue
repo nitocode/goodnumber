@@ -104,7 +104,9 @@ const share = () => {
           </p>
         </div>
         <div class="h-[20vh] overflow-hidden">
-          <div class="h-[20vh] overflow-scroll py-10 hide-scroll">
+          <div
+            class="h-[40px] lg:h-[20vh] overflow-scroll lg:py-10 hide-scroll"
+          >
             <div v-for="(answerObj, index) in answerList" :key="index">
               <p :id="`text-attempt-${index}`" class="text-xl lg:text-lg my-4">
                 Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
