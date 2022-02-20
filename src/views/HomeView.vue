@@ -1,8 +1,11 @@
 <script setup>
 import { createPinia } from "pinia";
 import { ref } from "vue";
+import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
 import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
+
+const { toClipboard } = useClipboard();
 
 const gap = ref(0);
 const userAttempt = ref(0);
@@ -63,7 +66,7 @@ const validate = () => {
   }
 };
 
-const share = () => {
+const share = async () => {
   let textToShare = `Good number #${question.value.id}: ${
     userAttempt.value === question.value.attemptLimit && !hasFound.value
       ? "😞"
@@ -76,14 +79,12 @@ const share = () => {
 
   textToShare += "\r\nsmartnumdle.nitocode.com";
 
-  navigator.clipboard.writeText(textToShare).then(
-    function () {
-      resultCopied.value = true;
-    },
-    function (err) {
-      console.error("Async: Could not copy text: ", err);
-    }
-  );
+  try {
+    await toClipboard(textToShare);
+    resultCopied.value = true;
+  } catch (e) {
+    console.error(e);
+  }
 };
 </script>
 
