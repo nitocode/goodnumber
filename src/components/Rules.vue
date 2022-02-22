@@ -8,7 +8,7 @@ const emit = defineEmits(["close"]);
 
 <template>
   <div
-    class="rules-modal fixed h-screen w-screen left-0 top-0"
+    class="rules-modal fixed z-50 h-screen w-screen left-0 top-0"
     @click.self="closeRules()"
   >
     <div

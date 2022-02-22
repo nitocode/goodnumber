@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <div class="app-container text-white min-h-screen px-4 py-8">
-    <Rules @close="closeRules()" class="" v-if="displayRules" />
+    <Rules @close="closeRules()" v-if="displayRules" />
     <div class="max-w-[500px] mx-auto">
       <Header @open="openRules()" />
       <RouterView />

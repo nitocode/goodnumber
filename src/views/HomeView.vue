@@ -1,6 +1,7 @@
 <script setup>
+import * as confetti from "canvas-confetti";
 import { useHistoryrStore } from "@/stores/history";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
 import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
@@ -9,6 +10,7 @@ const { toClipboard } = useClipboard();
 
 const historyStore = useHistoryrStore();
 
+const myConfetti = ref(null);
 const gap = ref(0);
 const userAttempt = ref(0);
 const answerList = ref([]);
@@ -16,6 +18,9 @@ const answer = ref();
 const hasFound = ref(false);
 const hasFinished = ref(false);
 const resultCopied = ref(false);
+const animationQuestionStarted = ref(false);
+const animationQuestionEnded = ref(false);
+const animationResultStarted = ref(false);
 
 const question = ref(questions[daySinceBeginning()]);
 
@@ -26,6 +31,11 @@ const initHistory = () => {
     userAttempt.value = answerList.value.length;
     hasFound.value = todaysQuestion.hasFound;
     hasFinished.value = todaysQuestion.hasFinished;
+    if (hasFinished.value) {
+      animationQuestionEnded.value = true;
+      animationQuestionStarted.value = true;
+      animationResultStarted.value = true;
+    }
   }
 };
 
@@ -51,6 +61,38 @@ const addAnswerToAttemptList = (answer, hasFound, hasFinished) => {
   );
 };
 
+const fireConfetti = () => {
+  myConfetti.value({
+    particleCount: 50,
+    startVelocity: 30,
+    spread: 360,
+    angle: 0,
+    origin: { x: 0.5, y: 0.25 },
+  });
+};
+
+const startAnimation = () => {
+  const questionTextElt = document.getElementById("question-text");
+
+  questionTextElt.ontransitionend = async (e) => {
+    if (e.propertyName === "opacity") {
+      animationQuestionEnded.value = true;
+      if (hasFound.value) {
+        fireConfetti();
+      }
+
+      // Wait for the result content to appear
+      await nextTick();
+
+      // Start result animation
+      setTimeout(() => {
+        animationResultStarted.value = true;
+      }, 1);
+    }
+  };
+  animationQuestionStarted.value = true;
+};
+
 const validate = () => {
   if (answer.value) {
     userAttempt.value += 1;
@@ -64,11 +106,13 @@ const validate = () => {
       if (historyStore.currentStreak > historyStore.bestStreak) {
         historyStore.bestStreak++;
       }
+      startAnimation();
     } else if (userAttempt.value === question.value.attemptLimit) {
       // LOSER CASE
       hasFound.value = false;
       hasFinished.value = true;
       historyStore.currentStreak = 0;
+      startAnimation();
     }
     addAnswerToAttemptList(answer.value, hasFound.value, hasFinished.value);
 
@@ -113,14 +157,37 @@ const share = async () => {
 
 onMounted(() => {
   initHistory();
+
+  const confettiCanvas = document.getElementById("confetti");
+  myConfetti.value = confetti.create(confettiCanvas, {
+    resize: true,
+    useWorker: true,
+  });
 });
 </script>
 
 <template>
-  <main class="text-center">
-    <div v-if="!hasFound && !hasFinished">
+  <main class="text-center relative">
+    <!-- CONFETTI CANVAS -->
+    <canvas class="fixed w-full h-full z-0 top-0 left-0" id="confetti"></canvas>
+
+    <!-- QUESTION -->
+    <div
+      class="relative z-10"
+      v-if="(!hasFound && !hasFinished) || !animationQuestionEnded"
+    >
       <div class="h-[50vh]">
-        <div class="my-10">
+        <!-- QUESTION TEXT -->
+        <div
+          id="question-text"
+          class="my-10 transition duration-1000"
+          :class="[
+            {
+              'translate-y-12 opacity-0': animationQuestionStarted && hasFound,
+            },
+            { 'opacity-0': animationQuestionStarted && !hasFound },
+          ]"
+        >
           <h2 class="text-3xl" v-html="question.title"></h2>
           <p class="mt-2">
             <span v-if="question.attemptLimit - userAttempt > 1"
@@ -132,7 +199,14 @@ onMounted(() => {
             >
           </p>
         </div>
-        <div class="h-[20vh] overflow-hidden">
+        <!-- ATTEMPT -->
+        <div
+          class="h-[20vh] overflow-hidden transition duration-500"
+          :class="[
+            { 'translate-y-4 opacity-0': animationQuestionStarted && hasFound },
+            { 'opacity-0': animationQuestionStarted && !hasFound },
+          ]"
+        >
           <div
             class="h-[40px] lg:h-[20vh] overflow-scroll lg:py-10 hide-scroll"
           >
@@ -145,55 +219,88 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div>
+      <!-- FORM -->
+      <div
+        class="transition duration-1000"
+        :class="[
+          { '-translate-y-24 opacity-0': animationQuestionStarted && hasFound },
+          ,
+          { 'opacity-0': animationQuestionStarted && !hasFound },
+        ]"
+      >
         <input
           id="input-answer"
-          class="text-black px-4 py-2 text-xl"
+          class="text-black px-4 py-2 text-xl block mx-auto"
           v-model="answer"
           type="number"
           @keyup.enter="validate()"
         />
+        <button class="btn-numdle mt-6" @click="validate()">VALIDER</button>
       </div>
-      <br />
-      <button class="btn-numdle" @click="validate()">VALIDER</button>
     </div>
-    <div v-else>
-      <div v-if="hasFound">
-        <p class="text-3xl my-10">BRAVO&nbsp;!!!</p>
-        <p>
-          Vous avez trouvé la bonne réponse en
-          {{ answerList.length }}&nbsp;tentative{{
-            answerList.length > 1 ? "s" : ""
-          }}&nbsp;!
+
+    <!-- RESULT -->
+    <div class="relative z-10" v-else>
+      <!-- RESULT TEXT -->
+      <div
+        class="transition duration-500 opacity-0"
+        :class="{ 'opacity-100': animationResultStarted }"
+      >
+        <div v-if="hasFound">
+          <p class="text-3xl my-10">BRAVO&nbsp;!!!</p>
+          <p>
+            Vous avez trouvé la bonne réponse en
+            {{ answerList.length }}&nbsp;tentative{{
+              answerList.length > 1 ? "s" : ""
+            }}&nbsp;!
+          </p>
+        </div>
+        <div v-else>
+          <p class="text-3xl my-10">Dommage&nbsp;!!!</p>
+          <p class="text-xl">La bonne réponse est : {{ question.answer }}</p>
+        </div>
+        <p class="text-sm italic mt-2">
+          À demain pour une nouvelle question&nbsp;!
         </p>
       </div>
-      <div v-else>
-        <p class="text-3xl my-10">Dommage&nbsp;!!!</p>
-        <p class="text-xl">La bonne réponse est : {{ question.answer }}</p>
+
+      <div
+        class="transition duration-500 delay-500 opacity-0"
+        :class="{ 'opacity-100': animationResultStarted }"
+      >
+        <div class="separator"></div>
+
+        <!-- ATTEMPT -->
+        <p class="text-lg mb-4">Résumé</p>
+        <div v-for="(answerObj, index) in answerList" :key="index">
+          <p class="text-md my-4">
+            Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
+            {{ answerObj.gap }}
+          </p>
+        </div>
       </div>
-      <p class="text-sm italic mt-2">
-        À demain pour une nouvelle question&nbsp;!
-      </p>
 
-      <div class="separator"></div>
+      <div
+        class="transition duration-500 delay-1000 opacity-0"
+        :class="{ 'opacity-100': animationResultStarted }"
+      >
+        <div class="separator"></div>
 
-      <p class="text-lg mb-4">Résumé</p>
-      <div v-for="(answerObj, index) in answerList" :key="index">
-        <p class="text-md my-4">
-          Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
-          {{ answerObj.gap }}
-        </p>
+        <!-- SHARE -->
+        <div>
+          <button class="btn-numdle" @click="share()">
+            <span v-if="!resultCopied">Partager mon résultat</span>
+            <span v-else>Résultat copié !</span>
+          </button>
+        </div>
       </div>
 
-      <div class="separator"></div>
-
-      <div class="">
-        <button class="btn-numdle" @click="share()">
-          <span v-if="!resultCopied">Partager mon résultat</span>
-          <span v-else>Résultat copié !</span>
-        </button>
-      </div>
-      <div v-if="question.linkForMore">
+      <!-- MORE -->
+      <div
+        class="transition duration-500 delay-1500 opacity-0"
+        :class="{ 'opacity-100': animationResultStarted }"
+        v-if="question.linkForMore"
+      >
         <div class="separator"></div>
 
         <div>

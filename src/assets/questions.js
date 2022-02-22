@@ -28,8 +28,8 @@ const questions = [
   {
     id: 4,
     date: "2022-2-23",
-    title: "Combien existe-t-il de constellations astronomiques&nbsp;?",
-    answer: 88,
+    title: "En quelle année sommes-nous&nbsp;?",
+    answer: 2022,
     linkForMore: "https://fr.wikipedia.org/wiki/Liste_des_constellations",
     attemptLimit: 4,
   },

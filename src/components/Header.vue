@@ -6,7 +6,7 @@ const openRules = () => {
 const emit = defineEmits(["open"]);
 </script>
 <template>
-  <header class="flex justify-between items-center mx-4 mb-8">
+  <header class="flex justify-between items-center mx-4 mb-8 relative z-10">
     <h1 class="text-2xl">SMART NUMDLE</h1>
     <div class="flex flex-row-reverse justify-between w-[80px]">
       <!-- <p>Stat</p> -->
