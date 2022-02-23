@@ -47,6 +47,7 @@ const reset = () => {
   animationQuestionEnded.value = false;
   animationQuestionStarted.value = false;
   animationResultStarted.value = false;
+  resultCopied.value = false;
 };
 
 const initHistory = () => {
