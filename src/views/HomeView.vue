@@ -1,14 +1,19 @@
 <script setup>
 import * as confetti from "canvas-confetti";
-import { useHistoryrStore } from "@/stores/history";
-import { ref, onMounted, nextTick } from "vue";
+import { useHistoryStore } from "@/stores/history";
+import { useDatemodeStore } from "@/stores/datemode";
+import { ref, onMounted, nextTick, watch } from "vue";
 import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
-import { getNumberOfDaysSinceBeginning as daySinceBeginning } from "@/scripts/helper";
+import {
+  getNumberOfDaysSinceBeginning as daySinceBeginning,
+  getQuestionByDate,
+} from "@/scripts/helper";
 
 const { toClipboard } = useClipboard();
 
-const historyStore = useHistoryrStore();
+const historyStore = useHistoryStore();
+const datemodeStore = useDatemodeStore();
 
 const myConfetti = ref(null);
 const gap = ref(0);
@@ -22,10 +27,33 @@ const animationQuestionStarted = ref(false);
 const animationQuestionEnded = ref(false);
 const animationResultStarted = ref(false);
 
-const question = ref(questions[daySinceBeginning()]);
+// const question = ref(questions[daySinceBeginning()]);
+console.log("datemodeStore.currentDate", datemodeStore.currentDate);
+const question = ref([]);
+question.value = getQuestionByDate(datemodeStore.currentDate);
+watch(
+  () => datemodeStore.currentDate,
+  () => {
+    question.value = getQuestionByDate(datemodeStore.currentDate);
+    initHistory();
+  }
+);
+
+const reset = () => {
+  answerList.value = [];
+  userAttempt.value = 0;
+  hasFound.value = false;
+  hasFinished.value = false;
+  animationQuestionEnded.value = false;
+  animationQuestionStarted.value = false;
+  animationResultStarted.value = false;
+};
 
 const initHistory = () => {
-  const todaysQuestion = historyStore.getTodaysQuestion;
+  const todaysQuestion = historyStore.getQuestionHistoryByDate(
+    datemodeStore.currentDate
+  );
+  console.log("todaysQuestion", todaysQuestion);
   if (todaysQuestion) {
     answerList.value = todaysQuestion.attempts[0];
     userAttempt.value = answerList.value.length;
@@ -36,6 +64,8 @@ const initHistory = () => {
       animationQuestionStarted.value = true;
       animationResultStarted.value = true;
     }
+  } else {
+    reset();
   }
 };
 
@@ -271,7 +301,7 @@ onMounted(() => {
         <div class="separator"></div>
 
         <!-- ATTEMPT -->
-        <p class="text-lg mb-4">Résumé</p>
+        <p class="text-lg mb-4">Résumé Smart Numdle #{{ question.id }}</p>
         <div v-for="(answerObj, index) in answerList" :key="index">
           <p class="text-md my-4">
             Tentative n°{{ index + 1 }}: {{ answerObj.answer }} :
