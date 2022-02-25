@@ -18,8 +18,24 @@ const getQuestionByDate = (date) => {
   })[0];
 };
 
-const getFormattedDate = (date) => {
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+const getFormattedDate = (dateObj) => {
+  return `${dateObj.getFullYear()}-${
+    dateObj.getMonth() + 1
+  }-${dateObj.getDate()}`;
 };
 
-export { getNumberOfDaysSinceBeginning, getFormattedDate, getQuestionByDate };
+const getYesterdayDate = (dateObj) => {
+  return new Date(dateObj.getTime() - 24 * 60 * 60 * 1000);
+};
+
+const getTomorrowDate = (dateObj) => {
+  return new Date(dateObj.getTime() + 24 * 60 * 60 * 1000);
+};
+
+export {
+  getNumberOfDaysSinceBeginning,
+  getFormattedDate,
+  getQuestionByDate,
+  getYesterdayDate,
+  getTomorrowDate,
+};

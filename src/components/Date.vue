@@ -4,6 +4,7 @@ import { ref } from "vue";
 import questions from "@/assets/questions";
 import { useHistoryStore } from "@/stores/history";
 import { useDatemodeStore } from "@/stores/datemode";
+import { getYesterdayDate, getTomorrowDate } from "@/scripts/helper";
 
 const historyStore = useHistoryStore();
 const datemodeStore = useDatemodeStore();
@@ -14,14 +15,28 @@ const historyDateTime = ref(null);
 
 const currentDateTime = new Date().setHours(0, 0, 0, 0);
 storeDate.value = historyStore.getTodaysQuestion.date;
-historyDateTime.value = new Date(storeDate.value).getTime();
 
-todaysQuestion.value = new Date(storeDate.value).toLocaleDateString();
+const initDateTime = () => {
+  historyDateTime.value = new Date(datemodeStore.currentDate).getTime();
+  todaysQuestion.value = new Date(
+    datemodeStore.currentDate
+  ).toLocaleDateString();
+};
 
-const nextQuestion = () => {};
+initDateTime();
+
+const nextQuestion = () => {
+  datemodeStore.changeCurrentDate(
+    getTomorrowDate(new Date(datemodeStore.currentDate))
+  );
+  initDateTime();
+};
 
 const prevQuestion = () => {
-  datemodeStore.changeCurrentDate("2022-2-22");
+  datemodeStore.changeCurrentDate(
+    getYesterdayDate(new Date(datemodeStore.currentDate))
+  );
+  initDateTime();
 };
 </script>
 
