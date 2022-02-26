@@ -5,10 +5,7 @@ import { useDatemodeStore } from "@/stores/datemode";
 import { ref, onMounted, nextTick, watch } from "vue";
 import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
-import {
-  getNumberOfDaysSinceBeginning as daySinceBeginning,
-  getQuestionByDate,
-} from "@/scripts/helper";
+import { getQuestionByDate } from "@/scripts/helper";
 
 const { toClipboard } = useClipboard();
 
@@ -27,8 +24,6 @@ const animationQuestionStarted = ref(false);
 const animationQuestionEnded = ref(false);
 const animationResultStarted = ref(false);
 
-// const question = ref(questions[daySinceBeginning()]);
-console.log("datemodeStore.currentDate", datemodeStore.currentDate);
 const question = ref([]);
 question.value = getQuestionByDate(datemodeStore.currentDate);
 watch(
@@ -54,7 +49,7 @@ const initHistory = () => {
   const todaysQuestion = historyStore.getQuestionHistoryByDate(
     datemodeStore.currentDate
   );
-  console.log("todaysQuestion", todaysQuestion);
+
   if (todaysQuestion) {
     answerList.value = todaysQuestion.attempts[0];
     userAttempt.value = answerList.value.length;
@@ -64,6 +59,10 @@ const initHistory = () => {
       animationQuestionEnded.value = true;
       animationQuestionStarted.value = true;
       animationResultStarted.value = true;
+    } else {
+      animationQuestionEnded.value = false;
+      animationQuestionStarted.value = false;
+      animationResultStarted.value = false;
     }
   } else {
     reset();

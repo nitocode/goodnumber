@@ -19,7 +19,7 @@ const emit = defineEmits(["open"]);
       <img
         class="w-[32px] h-[32px] cursor-pointer"
         @click="activateDatemode()"
-        src="@/assets/rules.svg"
+        src="@/assets/time.svg"
         alt="icone pour ouvrir les règles du jeu"
       />
       <img
