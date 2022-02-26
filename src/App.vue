@@ -4,20 +4,28 @@ import { RouterView, useRouter } from "vue-router";
 
 import { useDatemodeStore } from "@/stores/datemode";
 
-import Rules from "@/components/Rules.vue";
+import Rules from "@/components/modals/Rules.vue";
+import Stats from "@/components/modals/Stats.vue";
 import Header from "@/components/Header.vue";
 import Date from "@/components/Date.vue";
 import "@/assets/base.css";
 
 const datemodeStore = useDatemodeStore();
 
-const displayRules = ref(false);
+const modals = ref({
+  rules: {
+    isOpen: false,
+  },
+  stats: {
+    isOpen: false,
+  },
+});
 
-const openRules = () => {
-  displayRules.value = true;
+const openModal = (modalName) => {
+  modals.value[modalName].isOpen = true;
 };
-const closeRules = () => {
-  displayRules.value = false;
+const closeModal = (modalName) => {
+  modals.value[modalName].isOpen = false;
 };
 
 const router = useRouter();
@@ -33,9 +41,10 @@ onMounted(() => {
 
 <template>
   <div class="app-container text-white min-h-screen px-4 py-8">
-    <Rules @close="closeRules()" v-if="displayRules" />
+    <Rules @close="closeModal" v-if="modals['rules'].isOpen" />
+    <Stats @close="closeModal" v-if="modals['stats'].isOpen" />
     <div class="max-w-[500px] mx-auto">
-      <Header @open="openRules()" />
+      <Header @open="openModal" />
       <Date v-if="datemodeStore.datemode" />
       <RouterView />
     </div>
