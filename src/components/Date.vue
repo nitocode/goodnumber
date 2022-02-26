@@ -58,7 +58,7 @@ onMounted(() => {
       />
     </div>
     <div>
-      <p>{{ selectedDate }}</p>
+      <p>{{ selectedDate }} - #{{ currentQuestion.id }}</p>
     </div>
     <div
       class="cursor-pointer opacity-0"
