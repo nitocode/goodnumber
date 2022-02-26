@@ -1,6 +1,6 @@
 <script setup>
-const closeRules = () => {
-  emit("close");
+const close = () => {
+  emit("close", "rules");
 };
 
 const emit = defineEmits(["close"]);
@@ -9,13 +9,13 @@ const emit = defineEmits(["close"]);
 <template>
   <div
     class="rules-modal fixed z-50 h-screen w-screen left-0 top-0"
-    @click.self="closeRules()"
+    @click.self="close()"
   >
     <div
       class="rules-container border-2 border-white rounded fixed max-w-[400px] w-5/6 h-[500px] max-h-[90vh] mx-auto left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-y-scroll hide-scroll"
     >
       <div class="text-center p-4 text-sm">
-        <div class="fixed top-4 right-4 cursor-pointer" @click="closeRules()">
+        <div class="fixed top-4 right-4 cursor-pointer" @click="close()">
           <img
             class="w-[20px] h-[20px]"
             src="@/assets/cross.svg"
