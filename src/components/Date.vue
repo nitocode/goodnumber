@@ -60,7 +60,9 @@ onMounted(() => {
     <div>
       <p>
         {{ selectedDate }}
-        <span v-if="currentQuestion">- #{{ currentQuestion.id }}</span>
+        <span v-if="currentQuestion && currentQuestion.id"
+          >- #{{ currentQuestion.id }}</span
+        >
       </p>
     </div>
     <div

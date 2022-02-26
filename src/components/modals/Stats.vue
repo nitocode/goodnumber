@@ -1,8 +1,88 @@
 <script setup>
+import { ref, onMounted } from "vue";
+import useClipboard from "vue-clipboard3";
+import { useHistoryStore } from "@/stores/history";
+import {
+  getQuestionsUntilDate,
+  getFormattedDate,
+  cleanNumber,
+} from "@/scripts/helper";
+
+const { toClipboard } = useClipboard();
+const historyStore = useHistoryStore();
+
+const stats = ref({
+  statCurrentStreak: {
+    title: "Série courante de bonnes réponses consécutives",
+    value: "",
+  },
+  statBestStreak: {
+    title: "Record de bonnes réponses consécutives",
+    value: "",
+  },
+  statAvgAttempt: {
+    title: "Moyenne de tentatives par question terminée",
+    value: "",
+  },
+  statPerFound: {
+    title: "Pourcentage de réponses trouvées",
+    value: "",
+  },
+  statPerAnswered: {
+    title: "Pourcentage de questions effectuées",
+    value: "",
+  },
+});
+
+const resultCopied = ref(false);
+
+const initData = () => {
+  stats.value.statCurrentStreak.value = historyStore.currentStreak;
+  stats.value.statBestStreak.value = historyStore.bestStreak;
+  stats.value.statAvgAttempt.value =
+    historyStore.getFinishedQuestions.length > 0
+      ? cleanNumber(
+          historyStore.getFinishedQuestions.reduce((total, question) => {
+            return total + question.attempts.length;
+          }, 0) / historyStore.getFinishedQuestions.length
+        )
+      : 0;
+
+  stats.value.statPerFound.value = `${cleanNumber(
+    (historyStore.getFoundQuestions.length /
+      getQuestionsUntilDate(getFormattedDate(new Date())).length) *
+      100
+  )}%`;
+
+  stats.value.statPerAnswered.value = `${cleanNumber(
+    (historyStore.getFinishedQuestions.length /
+      getQuestionsUntilDate(getFormattedDate(new Date())).length) *
+      100
+  )}%`;
+};
+
+const share = async () => {
+  let textToShare = "Mes statistiques Smart numdle 📊\r\n\r\n";
+  Object.keys(stats.value).forEach((key) => {
+    textToShare += `${stats.value[key].title}: ${stats.value[key].value}\r\n`;
+  });
+  textToShare += "\r\nhttps://smartnumdle.nitocode.com";
+
+  try {
+    await toClipboard(textToShare);
+    resultCopied.value = true;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+onMounted(() => {
+  initData();
+});
+
 const close = () => {
   emit("close", "stats");
 };
-
 const emit = defineEmits(["close"]);
 </script>
 
@@ -24,24 +104,24 @@ const emit = defineEmits(["close"]);
         </div>
         <h2 class="text-center font-bold text-lg my-4">Statistiques</h2>
 
-        <table class="table-auto">
-          <!-- <thead>
-            <tr>
-              <th>Song</th>
-              <th>Artist</th>
-            </tr>
-          </thead> -->
+        <table class="table-auto my-10">
           <tbody>
-            <tr>
-              <td>Bonnes réponses consécutives</td>
-              <td class="text-center">5</td>
-            </tr>
-            <tr>
-              <td>Record bonnes réponses consécutives</td>
-              <td class="text-center">The Eagles</td>
+            <tr v-for="(k, index) in Object.keys(stats)" :key="index">
+              <td class="py-2 w-[70%]">{{ stats[k].title }}</td>
+              <td class="py-2 text-3xl text-center">
+                {{ stats[k].value }}
+              </td>
             </tr>
           </tbody>
         </table>
+
+        <!-- SHARE -->
+        <div class="text-center mt-4">
+          <button class="btn-numdle" @click="share()">
+            <span v-if="!resultCopied">Partager mes stats</span>
+            <span v-else>Stats copiées !</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -52,12 +132,6 @@ const emit = defineEmits(["close"]);
   background: rgba(0, 0, 0, 0.5);
   .stats-container {
     background-color: #3d4451;
-    p {
-      margin-bottom: 1em;
-    }
-    td {
-      padding: 10px 0;
-    }
   }
 }
 </style>
