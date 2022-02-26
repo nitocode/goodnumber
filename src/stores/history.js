@@ -24,6 +24,12 @@ export const useHistoryStore = defineStore({
             new Date(date).setHours(0, 0, 0, 0)
         )[0];
     },
+    getFinishedQuestions: (state) => {
+      return state.questionHistory.filter((item) => item.hasFinished);
+    },
+    getFoundQuestions: (state) => {
+      return state.questionHistory.filter((item) => item.hasFound);
+    },
   },
   actions: {
     addAttemptToQuestion(question, attempt, hasFound, hasFinished) {

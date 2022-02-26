@@ -18,6 +18,12 @@ const getQuestionByDate = (date) => {
   })[0];
 };
 
+const getQuestionsUntilDate = (date) => {
+  return questions.filter((item) => {
+    return new Date(item.date).getTime() <= new Date(date).setHours(0, 0, 0, 0);
+  });
+};
+
 const getFormattedDate = (dateObj) => {
   return `${dateObj.getFullYear()}-${
     dateObj.getMonth() + 1
@@ -32,10 +38,16 @@ const getTomorrowDate = (dateObj) => {
   return new Date(dateObj.getTime() + 24 * 60 * 60 * 1000);
 };
 
+const cleanNumber = (number) => {
+  return Number.isInteger(number) ? number : number.toFixed(2);
+};
+
 export {
   getNumberOfDaysSinceBeginning,
   getFormattedDate,
   getQuestionByDate,
+  getQuestionsUntilDate,
   getYesterdayDate,
   getTomorrowDate,
+  cleanNumber,
 };
