@@ -1,3 +1,5 @@
+import questions from "@/assets/questions";
+
 const getNumberOfDaysSinceBeginning = () => {
   const initialDate = new Date("2022-2-20");
   const currentDate = new Date();
@@ -8,4 +10,32 @@ const getNumberOfDaysSinceBeginning = () => {
   return Math.floor(dayDiff || 0);
 };
 
-export { getNumberOfDaysSinceBeginning };
+const getQuestionByDate = (date) => {
+  return questions.filter((item) => {
+    return (
+      new Date(item.date).getTime() === new Date(date).setHours(0, 0, 0, 0)
+    );
+  })[0];
+};
+
+const getFormattedDate = (dateObj) => {
+  return `${dateObj.getFullYear()}-${
+    dateObj.getMonth() + 1
+  }-${dateObj.getDate()}`;
+};
+
+const getYesterdayDate = (dateObj) => {
+  return new Date(dateObj.getTime() - 24 * 60 * 60 * 1000);
+};
+
+const getTomorrowDate = (dateObj) => {
+  return new Date(dateObj.getTime() + 24 * 60 * 60 * 1000);
+};
+
+export {
+  getNumberOfDaysSinceBeginning,
+  getFormattedDate,
+  getQuestionByDate,
+  getYesterdayDate,
+  getTomorrowDate,
+};

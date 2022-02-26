@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
 
-export const useHistoryrStore = defineStore({
+export const useHistoryStore = defineStore({
   id: "history",
   state: () => ({
     questionHistory: useStorage("questionHistory", []),
@@ -15,6 +15,14 @@ export const useHistoryrStore = defineStore({
         (item) =>
           new Date(item.date).getTime() === new Date().setHours(0, 0, 0, 0)
       )[0];
+    },
+    getQuestionHistoryByDate: (state) => {
+      return (date) =>
+        state.questionHistory.filter(
+          (item) =>
+            new Date(item.date).getTime() ===
+            new Date(date).setHours(0, 0, 0, 0)
+        )[0];
     },
   },
   actions: {

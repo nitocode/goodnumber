@@ -1,9 +1,15 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { RouterLink, RouterView, useRouter } from "vue-router";
+import { RouterView, useRouter } from "vue-router";
+
+import { useDatemodeStore } from "@/stores/datemode";
+
 import Rules from "@/components/Rules.vue";
 import Header from "@/components/Header.vue";
+import Date from "@/components/Date.vue";
 import "@/assets/base.css";
+
+const datemodeStore = useDatemodeStore();
 
 const displayRules = ref(false);
 
@@ -30,6 +36,7 @@ onMounted(() => {
     <Rules @close="closeRules()" v-if="displayRules" />
     <div class="max-w-[500px] mx-auto">
       <Header @open="openRules()" />
+      <Date v-if="datemodeStore.datemode" />
       <RouterView />
     </div>
   </div>
