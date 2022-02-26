@@ -1,1 +1,0 @@
-import{_ as e}from"./index.d1f61ebe.js";import{o as s,c as t,a as _}from"./vendor.a9025541.js";const o={},a={class:"result"},r=_("h1",null,"This is an result page",-1),c=[r];function n(i,l){return s(),t("div",a,c)}var f=e(o,[["render",n]]);export{f as default};

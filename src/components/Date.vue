@@ -58,7 +58,10 @@ onMounted(() => {
       />
     </div>
     <div>
-      <p>{{ selectedDate }} - #{{ currentQuestion.id }}</p>
+      <p>
+        {{ selectedDate }}
+        <span v-if="currentQuestion">- #{{ currentQuestion.id }}</span>
+      </p>
     </div>
     <div
       class="cursor-pointer opacity-0"
