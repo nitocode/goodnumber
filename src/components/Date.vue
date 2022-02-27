@@ -8,6 +8,7 @@ import {
   getYesterdayDate,
   getTomorrowDate,
   getQuestionByDate,
+  getFormattedDate,
 } from "@/scripts/helper";
 
 const historyStore = useHistoryStore();
@@ -27,14 +28,14 @@ const initDateTime = () => {
 
 const nextQuestion = () => {
   datemodeStore.changeCurrentDate(
-    getTomorrowDate(new Date(datemodeStore.currentDate))
+    getFormattedDate(getTomorrowDate(new Date(datemodeStore.currentDate)))
   );
   initDateTime();
 };
 
 const prevQuestion = () => {
   datemodeStore.changeCurrentDate(
-    getYesterdayDate(new Date(datemodeStore.currentDate))
+    getFormattedDate(getYesterdayDate(new Date(datemodeStore.currentDate)))
   );
   initDateTime();
 };

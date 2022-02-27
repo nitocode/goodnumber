@@ -11,10 +11,9 @@ const getNumberOfDaysSinceBeginning = () => {
 };
 
 const getQuestionByDate = (date) => {
+  // date ex: 2022-2-23
   return questions.filter((item) => {
-    return (
-      new Date(item.date).getTime() === new Date(date).setHours(0, 0, 0, 0)
-    );
+    return item.date === date;
   })[0];
 };
 

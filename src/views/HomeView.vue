@@ -199,7 +199,7 @@ watch(
 </script>
 
 <template>
-  <main class="text-center relative">
+  <main v-if="question" class="text-center relative">
     <!-- CONFETTI CANVAS -->
     <canvas class="fixed w-full h-full z-0 top-0 left-0" id="confetti"></canvas>
 
