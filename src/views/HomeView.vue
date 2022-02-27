@@ -25,16 +25,6 @@ const animationQuestionStarted = ref(false);
 const animationQuestionEnded = ref(false);
 const animationResultStarted = ref(false);
 
-watch(
-  () => datemodeStore.currentDate,
-  () => {
-    if (question.value) {
-      question.value = getQuestionByDate(datemodeStore.currentDate);
-    }
-    initHistory();
-  }
-);
-
 const reset = () => {
   answerList.value = [];
   userAttempt.value = 0;
@@ -196,6 +186,16 @@ onMounted(() => {
     useWorker: true,
   });
 });
+
+watch(
+  () => datemodeStore.currentDate,
+  () => {
+    if (question.value) {
+      question.value = getQuestionByDate(datemodeStore.currentDate);
+    }
+    initHistory();
+  }
+);
 </script>
 
 <template>
