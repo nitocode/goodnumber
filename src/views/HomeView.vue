@@ -16,6 +16,7 @@ const myConfetti = ref(null);
 const gap = ref(0);
 const userAttempt = ref(0);
 const answerList = ref([]);
+const question = ref([]);
 const answer = ref();
 const hasFound = ref(false);
 const hasFinished = ref(false);
@@ -24,12 +25,12 @@ const animationQuestionStarted = ref(false);
 const animationQuestionEnded = ref(false);
 const animationResultStarted = ref(false);
 
-const question = ref([]);
-question.value = getQuestionByDate(datemodeStore.currentDate);
 watch(
   () => datemodeStore.currentDate,
   () => {
-    question.value = getQuestionByDate(datemodeStore.currentDate);
+    if (question.value) {
+      question.value = getQuestionByDate(datemodeStore.currentDate);
+    }
     initHistory();
   }
 );
@@ -186,6 +187,7 @@ const share = async () => {
 };
 
 onMounted(() => {
+  question.value = getQuestionByDate(datemodeStore.currentDate);
   initHistory();
 
   const confettiCanvas = document.getElementById("confetti");
