@@ -166,6 +166,125 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/T%C3%A9traphobie",
     attemptLimit: 3,
   },
+  {
+    id: 21,
+    date: "2022-3-12",
+    title: "Combien de dents permanentes ont les chiens ?",
+    answer: 42,
+    linkForMore: "https://fr.wikipedia.org/wiki/Anatomie_du_chien#Dents",
+    attemptLimit: 6,
+  },
+  {
+    id: 22,
+    date: "2022-3-13",
+    title: "En quelle année les Beatles se sont séparés ?",
+    answer: 1970,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/The_Beatles#S%C3%A9paration_(1969-1970)",
+    attemptLimit: 5,
+  },
+  {
+    id: 23,
+    date: "2022-3-14",
+    title: "Combien de touches possède un piano standard ?",
+    answer: 88,
+    linkForMore: "https://fr.wikipedia.org/wiki/Piano",
+    attemptLimit: 5,
+  },
+  {
+    id: 24,
+    date: "2022-3-15",
+    title:
+      "Combien d'éléments comporte le tableau périodique standard des éléments ?",
+    answer: 118,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Tableau_p%C3%A9riodique_des_%C3%A9l%C3%A9ments",
+    attemptLimit: 5,
+  },
+  {
+    id: 25,
+    date: "2022-3-16",
+    title: "Combien de coeurs possède une pieuvre ?",
+    answer: 3,
+    linkForMore: "https://fr.wikipedia.org/wiki/Pieuvre",
+    attemptLimit: 3,
+  },
+  {
+    id: 26,
+    date: "2022-3-17",
+    title:
+      "En quelle année a été lancée le système d'exploitation Windows XP ?",
+    answer: 2001,
+    linkForMore: "https://fr.wikipedia.org/wiki/Windows_XP",
+    attemptLimit: 4,
+  },
+  {
+    id: 27,
+    date: "2022-3-18",
+    title: "En quelle année fut couronné Charlemagne ?",
+    answer: 800,
+    linkForMore: "https://fr.wikipedia.org/wiki/Charlemagne",
+    attemptLimit: 5,
+  },
+  {
+    id: 28,
+    date: "2022-3-19",
+    title:
+      "Combien de doigts possèdent les personnages dans l'univers des Simpson ?",
+    answer: 4,
+    linkForMore: "https://fr.wikipedia.org/wiki/Les_Simpson",
+    attemptLimit: 3,
+  },
+  {
+    id: 29,
+    date: "2022-3-20",
+    title: "Combien de Grand Chelem en simple a gagné Serena Williams ?",
+    answer: 23,
+    linkForMore: "https://fr.wikipedia.org/wiki/Serena_Williams",
+    attemptLimit: 5,
+  },
+  {
+    id: 30,
+    date: "2022-3-21",
+    title: "Pendant quel siècle le peintre Rembrandt a-t-il vécu ?",
+    answer: 17,
+    linkForMore: "https://fr.wikipedia.org/wiki/Rembrandt",
+    attemptLimit: 3,
+  },
+  {
+    id: 31,
+    date: "2022-3-22",
+    title:
+      "Combien de présidents américains a rencontré la Reine Élisabeth II depuis le début de son règne ?",
+    answer: 13,
+    linkForMore: "https://fr.wikipedia.org/wiki/%C3%89lisabeth_II",
+    attemptLimit: 5,
+  },
+  {
+    id: 32,
+    date: "2022-3-23",
+    title:
+      "Sur un espace de combien de points peut être représenté une lettre en braille ?",
+    answer: 6,
+    linkForMore: "https://fr.wikipedia.org/wiki/Braille",
+    attemptLimit: 4,
+  },
+  {
+    id: 33,
+    date: "2022-3-24",
+    title: "En quelle année fut inventée la pile électrique ?",
+    answer: 1800,
+    linkForMore: "https://fr.wikipedia.org/wiki/Pile_%C3%A9lectrique",
+    attemptLimit: 6,
+  },
+  {
+    id: 34,
+    date: "2022-3-25",
+    title: "En quelle année fut lancée la console Nintendo 64 en europe ?",
+    answer: 1997,
+    linkForMore: "https://fr.wikipedia.org/wiki/Nintendo_64",
+    attemptLimit: 5,
+  },
 ];
 
 export default questions;
