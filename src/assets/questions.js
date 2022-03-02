@@ -78,7 +78,7 @@ const questions = [
   {
     id: 10,
     date: "2022-3-1",
-    title: "Combien y a-t-il de signes astrologiques chinois ?",
+    title: "Combien y a-t-il de signes astrologiques chinois&nbsp;?",
     answer: 12,
     linkForMore: "https://fr.wikipedia.org/wiki/Astrologie_chinoise",
     attemptLimit: 3,
@@ -87,7 +87,7 @@ const questions = [
     id: 11,
     date: "2022-3-2",
     title:
-      "Combien y a-t-il de joueurs sur le terrain dans une équipe de base-ball ?",
+      "Combien y a-t-il de joueurs sur le terrain dans une équipe de base‑ball&nbsp;?",
     answer: 9,
     linkForMore: "https://fr.wikipedia.org/wiki/Baseball",
     attemptLimit: 4,
@@ -95,7 +95,8 @@ const questions = [
   {
     id: 12,
     date: "2022-3-3",
-    title: "A combien d'années de mariages correspondent les noces de papier ?",
+    title:
+      "A combien d'années de mariages correspondent les noces de papier&nbsp;?",
     answer: 37,
     linkForMore: "https://fr.wikipedia.org/wiki/Anniversaire_de_mariage",
     attemptLimit: 7,
@@ -104,7 +105,7 @@ const questions = [
     id: 13,
     date: "2022-3-4",
     title:
-      "En quelle année Angela Merkel a-t-elle été nommée chancelière d'Allemagne ?",
+      "En quelle année Angela Merkel a-t-elle été nommée chancelière d'Allemagne&nbsp;?",
     answer: 2005,
     linkForMore: "https://fr.wikipedia.org/wiki/Angela_Merkel",
     attemptLimit: 4,
@@ -112,7 +113,7 @@ const questions = [
   {
     id: 14,
     date: "2022-3-5",
-    title: "Combien font un + la moitié d'un quart de 8 ?",
+    title: "Combien font un + la moitié d'un quart de 8&nbsp;?",
     answer: 2,
     linkForMore: "https://fr.wikipedia.org/wiki/2_(chiffre)",
     attemptLimit: 2,
@@ -121,7 +122,7 @@ const questions = [
     id: 15,
     date: "2022-3-6",
     title:
-      "Combien y a-t-il de miles à parcourir dans la course d'Indianapolis ?",
+      "Combien y a-t-il de miles à parcourir dans la course d'Indianapolis&nbsp;?",
     answer: 500,
     linkForMore: "https://fr.wikipedia.org/wiki/500_miles_d%27Indianapolis",
     attemptLimit: 6,
@@ -129,7 +130,7 @@ const questions = [
   {
     id: 16,
     date: "2022-3-7",
-    title: "Combien de fois Elizabeth Taylor s'est-elle mariée ?",
+    title: "Combien de fois Elizabeth Taylor s'est-elle mariée&nbsp;?",
     answer: 8,
     linkForMore: "https://fr.wikipedia.org/wiki/Elizabeth_Taylor",
     attemptLimit: 4,
@@ -137,7 +138,7 @@ const questions = [
   {
     id: 17,
     date: "2022-3-8",
-    title: "Quel numéro porte le département du Loir-et-Cher ?",
+    title: "Quel numéro porte le département du Loir-et-Cher&nbsp;?",
     answer: 41,
     linkForMore: "https://fr.wikipedia.org/wiki/Loir-et-Cher",
     attemptLimit: 6,
@@ -145,7 +146,8 @@ const questions = [
   {
     id: 18,
     date: "2022-3-9",
-    title: "Combien d'années a duré le plus long règne de tous les temps ?",
+    title:
+      "Combien d'années a duré le plus long règne de tous les temps&nbsp;?",
     answer: 82,
     linkForMore: "https://fr.wikipedia.org/wiki/Sobhuza_II",
     attemptLimit: 7,
@@ -153,7 +155,7 @@ const questions = [
   {
     id: 19,
     date: "2022-3-10",
-    title: "Combien de côtés possède un ennéagone ?",
+    title: "Combien de côtés possède un ennéagone&nbsp;?",
     answer: 9,
     linkForMore: "https://fr.wikipedia.org/wiki/Enn%C3%A9agone",
     attemptLimit: 3,
@@ -161,7 +163,8 @@ const questions = [
   {
     id: 20,
     date: "2022-3-11",
-    title: "Quel chiffre effraie la plupart des habitants d'Asie de l'est ?",
+    title:
+      "Quel chiffre effraie la plupart des habitants d'Asie de l'est&nbsp;?",
     answer: 4,
     linkForMore: "https://fr.wikipedia.org/wiki/T%C3%A9traphobie",
     attemptLimit: 3,
@@ -169,7 +172,7 @@ const questions = [
   {
     id: 21,
     date: "2022-3-12",
-    title: "Combien de dents permanentes ont les chiens ?",
+    title: "Combien de dents permanentes ont les chiens&nbsp;?",
     answer: 42,
     linkForMore: "https://fr.wikipedia.org/wiki/Anatomie_du_chien#Dents",
     attemptLimit: 6,
@@ -177,7 +180,7 @@ const questions = [
   {
     id: 22,
     date: "2022-3-13",
-    title: "En quelle année les Beatles se sont séparés ?",
+    title: "En quelle année les Beatles se sont séparés&nbsp;?",
     answer: 1970,
     linkForMore:
       "https://fr.wikipedia.org/wiki/The_Beatles#S%C3%A9paration_(1969-1970)",
@@ -186,7 +189,7 @@ const questions = [
   {
     id: 23,
     date: "2022-3-14",
-    title: "Combien de touches possède un piano standard ?",
+    title: "Combien de touches possède un piano standard&nbsp;?",
     answer: 88,
     linkForMore: "https://fr.wikipedia.org/wiki/Piano",
     attemptLimit: 5,
@@ -195,7 +198,7 @@ const questions = [
     id: 24,
     date: "2022-3-15",
     title:
-      "Combien d'éléments comporte le tableau périodique standard des éléments ?",
+      "Combien d'éléments comporte le tableau périodique standard des éléments&nbsp;?",
     answer: 118,
     linkForMore:
       "https://fr.wikipedia.org/wiki/Tableau_p%C3%A9riodique_des_%C3%A9l%C3%A9ments",
@@ -204,7 +207,7 @@ const questions = [
   {
     id: 25,
     date: "2022-3-16",
-    title: "Combien de coeurs possède une pieuvre ?",
+    title: "Combien de coeurs possède une pieuvre&nbsp;?",
     answer: 3,
     linkForMore: "https://fr.wikipedia.org/wiki/Pieuvre",
     attemptLimit: 3,
@@ -213,7 +216,7 @@ const questions = [
     id: 26,
     date: "2022-3-17",
     title:
-      "En quelle année a été lancée le système d'exploitation Windows XP ?",
+      "En quelle année a été lancée le système d'exploitation Windows XP&nbsp;?",
     answer: 2001,
     linkForMore: "https://fr.wikipedia.org/wiki/Windows_XP",
     attemptLimit: 4,
@@ -221,7 +224,7 @@ const questions = [
   {
     id: 27,
     date: "2022-3-18",
-    title: "En quelle année fut couronné Charlemagne ?",
+    title: "En quelle année fut couronné Charlemagne&nbsp;?",
     answer: 800,
     linkForMore: "https://fr.wikipedia.org/wiki/Charlemagne",
     attemptLimit: 5,
@@ -230,7 +233,7 @@ const questions = [
     id: 28,
     date: "2022-3-19",
     title:
-      "Combien de doigts possèdent les personnages dans l'univers des Simpson ?",
+      "Combien de doigts possèdent les personnages dans l'univers des Simpson&nbsp;?",
     answer: 4,
     linkForMore: "https://fr.wikipedia.org/wiki/Les_Simpson",
     attemptLimit: 3,
@@ -238,7 +241,7 @@ const questions = [
   {
     id: 29,
     date: "2022-3-20",
-    title: "Combien de Grand Chelem en simple a gagné Serena Williams ?",
+    title: "Combien de Grand Chelem en simple a gagné Serena Williams&nbsp;?",
     answer: 23,
     linkForMore: "https://fr.wikipedia.org/wiki/Serena_Williams",
     attemptLimit: 5,
@@ -246,7 +249,7 @@ const questions = [
   {
     id: 30,
     date: "2022-3-21",
-    title: "Pendant quel siècle le peintre Rembrandt a-t-il vécu ?",
+    title: "Pendant quel siècle le peintre Rembrandt a-t-il vécu&nbsp;?",
     answer: 17,
     linkForMore: "https://fr.wikipedia.org/wiki/Rembrandt",
     attemptLimit: 3,
@@ -255,7 +258,7 @@ const questions = [
     id: 31,
     date: "2022-3-22",
     title:
-      "Combien de présidents américains a rencontré la Reine Élisabeth II depuis le début de son règne ?",
+      "Combien de présidents américains a rencontré la Reine Élisabeth II depuis le début de son règne&nbsp;?",
     answer: 13,
     linkForMore: "https://fr.wikipedia.org/wiki/%C3%89lisabeth_II",
     attemptLimit: 5,
@@ -264,7 +267,7 @@ const questions = [
     id: 32,
     date: "2022-3-23",
     title:
-      "Sur un espace de combien de points peut être représenté une lettre en braille ?",
+      "Sur un espace de combien de points peut être représenté une lettre en braille&nbsp;?",
     answer: 6,
     linkForMore: "https://fr.wikipedia.org/wiki/Braille",
     attemptLimit: 4,
@@ -272,7 +275,7 @@ const questions = [
   {
     id: 33,
     date: "2022-3-24",
-    title: "En quelle année fut inventée la pile électrique ?",
+    title: "En quelle année fut inventée la pile électrique&nbsp;?",
     answer: 1800,
     linkForMore: "https://fr.wikipedia.org/wiki/Pile_%C3%A9lectrique",
     attemptLimit: 6,
@@ -280,7 +283,7 @@ const questions = [
   {
     id: 34,
     date: "2022-3-25",
-    title: "En quelle année fut lancée la console Nintendo 64 en europe ?",
+    title: "En quelle année fut lancée la console Nintendo 64 en europe&nbsp;?",
     answer: 1997,
     linkForMore: "https://fr.wikipedia.org/wiki/Nintendo_64",
     attemptLimit: 5,
