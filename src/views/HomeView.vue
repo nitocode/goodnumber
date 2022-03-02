@@ -62,10 +62,24 @@ const initHistory = () => {
 
 const addAnswerToAttemptList = (answer, hasFound, hasFinished) => {
   let gap = "✅";
+  const answerDistance = (answer / question.value.answer) * 100;
+
   if (question.value.answer - answer < 0) {
-    gap = "🔻";
+    if (answerDistance < 120) {
+      gap = "🔻";
+    } else if (answerDistance < 160) {
+      gap = "🔻🔻";
+    } else {
+      gap = "🔻🔻🔻";
+    }
   } else if (question.value.answer - answer > 0) {
-    gap = "🔺";
+    if (answerDistance > 80) {
+      gap = "🔺";
+    } else if (answerDistance > 40) {
+      gap = "🔺🔺";
+    } else {
+      gap = "🔺🔺🔺";
+    }
   } else {
     gap = "✅";
   }
