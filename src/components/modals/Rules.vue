@@ -29,9 +29,11 @@ const emit = defineEmits(["close"]);
         </p>
         <p>En cas de mauvaise réponse un indice vous sera donné.</p>
         <div class="separator"></div>
-        <p>1847 : 🔺<br />Le résultat à trouver est plus grand.</p>
+        <p>1847 : 🔺<br />Le résultat à trouver est (un peu) plus grand.</p>
         <div class="separator"></div>
-        <p>1400 : 🔻<br />Le résultat à trouver est plus petit.</p>
+        <p>
+          3050 : 🔻🔻🔻<br />Le résultat à trouver est (beaucoup) plus petit.
+        </p>
         <div class="separator"></div>
         <p>Comparez ensuite votre résultat avec vos amis&nbsp;!</p>
         <p>Bonne chance&nbsp;!</p>
