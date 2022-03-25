@@ -288,6 +288,85 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Nintendo_64",
     attemptLimit: 5,
   },
+  {
+    id: 35,
+    date: "2022-3-26",
+    title: "En quelle année Bob Kane a créé le super-héros Batman&nbsp;?",
+    answer: 1939,
+    linkForMore: "https://fr.wikipedia.org/wiki/Batman",
+    attemptLimit: 4,
+  },
+  {
+    id: 36,
+    date: "2022-3-27",
+    title: "Combien d'années a duré le périple de Marco Polo en Asie&nbsp;?",
+    answer: 24,
+    linkForMore: "https://fr.wikipedia.org/wiki/Marco_Polo",
+    attemptLimit: 4,
+  },
+  {
+    id: 37,
+    date: "2022-3-28",
+    title:
+      "Quelle est la date conventionnelle de l'invention de la photographie&nbsp;?",
+    answer: 1839,
+    linkForMore: "https://fr.wikipedia.org/wiki/Photographie",
+    attemptLimit: 4,
+  },
+  {
+    id: 38,
+    date: "2022-3-29",
+    title:
+      "Pendant combien d'années Charles de Gaulle a été président de la république Française&nbsp;?",
+    answer: 10,
+    linkForMore: "https://fr.wikipedia.org/wiki/Charles_de_Gaulle",
+    attemptLimit: 4,
+  },
+  {
+    id: 39,
+    date: "2022-3-30",
+    title:
+      "En quelle année Spiderman est apparu pour la première fois dans un comic&nbsp;?",
+    answer: 1962,
+    linkForMore: "https://fr.wikipedia.org/wiki/Spider-Man",
+    attemptLimit: 4,
+  },
+  {
+    id: 40,
+    date: "2022-3-31",
+    title:
+      "En quelle année Christophe Colomb a-t-il découvert l'Amérique&nbsp;?",
+    answer: 1492,
+    linkForMore: "https://fr.wikipedia.org/wiki/Christophe_Colomb",
+    attemptLimit: 4,
+  },
+  {
+    id: 41,
+    date: "2022-4-1",
+    title:
+      "De quand date la plus ancienne occurence connue du « poisson d'avril »&nbsp;?",
+    answer: 1466,
+    linkForMore: "https://fr.wikipedia.org/wiki/Poisson_d%27avril",
+    attemptLimit: 4,
+  },
+  {
+    id: 42,
+    date: "2022-4-2",
+    title: "En quelle année est dépénalisé l'avortement en France&nbsp;?",
+    answer: 1975,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Interruption_volontaire_de_grossesse_en_France",
+    attemptLimit: 4,
+  },
+  {
+    id: 34,
+    date: "2022-4-3",
+    title:
+      "Combien de mètres mesure la plus haute structure humaine construite au monde&nbsp;?",
+    answer: 828,
+    linkForMore: "https://fr.wikipedia.org/wiki/Burj_Khalifa",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
