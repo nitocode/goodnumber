@@ -359,12 +359,46 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 34,
+    id: 40,
     date: "2022-4-3",
     title:
       "Combien de mètres mesure la plus haute structure humaine construite au monde&nbsp;?",
     answer: 828,
     linkForMore: "https://fr.wikipedia.org/wiki/Burj_Khalifa",
+    attemptLimit: 4,
+  },
+  {
+    id: 41,
+    date: "2022-4-4",
+    title: "A quel âge est mort Jules Cesar&nbsp;?",
+    answer: 89,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Constitution_fran%C3%A7aise_du_4_octobre_1958",
+    attemptLimit: 4,
+  },
+  {
+    id: 42,
+    date: "2022-4-5",
+    title:
+      "Combien d'articles possède la constitution française de 1958&nbsp;?",
+    answer: 828,
+    linkForMore: "https://fr.wikipedia.org/wiki/Burj_Khalifa",
+    attemptLimit: 4,
+  },
+  {
+    id: 43,
+    date: "2022-4-6",
+    title: "Combien de touches avait la première calculatrice de poche&nbsp;?",
+    answer: 35,
+    linkForMore: "https://fr.wikipedia.org/wiki/Calculatrice",
+    attemptLimit: 4,
+  },
+  {
+    id: 44,
+    date: "2022-4-7",
+    title: "Combien d'années a vécu Michael Jackson&nbsp;?",
+    answer: 50,
+    linkForMore: "https://fr.wikipedia.org/wiki/Michael_Jackson",
     attemptLimit: 4,
   },
 ];
