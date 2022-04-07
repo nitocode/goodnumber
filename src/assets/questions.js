@@ -401,6 +401,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Michael_Jackson",
     attemptLimit: 4,
   },
+  {
+    id: 48,
+    date: "2022-4-8",
+    title: "En quelle année est mort Louis XIV&nbsp;?",
+    answer: 1715,
+    linkForMore: "https://fr.wikipedia.org/wiki/Louis_XIV",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
