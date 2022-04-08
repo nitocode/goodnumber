@@ -409,6 +409,31 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Louis_XIV",
     attemptLimit: 4,
   },
+  {
+    id: 49,
+    date: "2022-4-9",
+    title:
+      "Quelle est la valeur maximale de l'echelle de Mohs qui permet de mesurer la dureté des minéraux&nbsp;?",
+    answer: 10,
+    linkForMore: "https://fr.wikipedia.org/wiki/%C3%89chelle_de_Mohs",
+    attemptLimit: 4,
+  },
+  {
+    id: 50,
+    date: "2022-4-10",
+    title: "Quand a été inventée l'échelle de Richter&nbsp;?",
+    answer: 1935,
+    linkForMore: "https://fr.wikipedia.org/wiki/%C3%89chelle_de_Richter",
+    attemptLimit: 4,
+  },
+  {
+    id: 51,
+    date: "2022-4-11",
+    title: "En quelle année s'est produite la chute du mur de Berlin&nbsp;?",
+    answer: 1989,
+    linkForMore: "https://fr.wikipedia.org/wiki/Mur_de_Berlin",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
