@@ -434,6 +434,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Mur_de_Berlin",
     attemptLimit: 4,
   },
+  {
+    id: 52,
+    date: "2022-4-12",
+    title: "En quelle année fut lancé le réseau social Myspace&nbsp;?",
+    answer: 2003,
+    linkForMore: "https://fr.wikipedia.org/wiki/Myspace",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
