@@ -442,6 +442,15 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Myspace",
     attemptLimit: 4,
   },
+  {
+    id: 53,
+    date: "2022-4-13",
+    title:
+      "Combien de milliers de km mesure la Grande muraille de Chine&nbsp;?",
+    answer: 21,
+    linkForMore: "https://fr.wikipedia.org/wiki/Grande_Muraille",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
