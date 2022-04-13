@@ -451,6 +451,15 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Grande_Muraille",
     attemptLimit: 4,
   },
+  {
+    id: 54,
+    date: "2022-4-14",
+    title:
+      "Quel est le record mondial (en milliers) de décimales de pi récitées de mémoire&nbsp;?",
+    answer: 83,
+    linkForMore: "https://fr.wikipedia.org/wiki/Akira_Haraguchi",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
