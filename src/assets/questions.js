@@ -460,6 +460,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Akira_Haraguchi",
     attemptLimit: 4,
   },
+  {
+    id: 55,
+    date: "2022-4-15",
+    title: "En quelle année fut inventé le PC&nbsp;?",
+    answer: 1957,
+    linkForMore: "https://fr.wikipedia.org/wiki/Ordinateur_personnel",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
