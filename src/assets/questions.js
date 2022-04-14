@@ -468,6 +468,40 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Ordinateur_personnel",
     attemptLimit: 4,
   },
+  {
+    id: 56,
+    date: "2022-4-16",
+    title: "Quelle est la date de sortie du jeu-vidéo Tetris&nbsp;?",
+    answer: 1984,
+    linkForMore: "https://fr.wikipedia.org/wiki/Tetris",
+    attemptLimit: 4,
+  },
+  {
+    id: 57,
+    date: "2022-4-17",
+    title:
+      "A combien de millions d'exemplaire s'est vendue la première console Playstation&nbsp;?",
+    answer: 104,
+    linkForMore: "https://fr.wikipedia.org/wiki/PlayStation",
+    attemptLimit: 4,
+  },
+  {
+    id: 58,
+    date: "2022-4-18",
+    title: "Combien d'années a vécu Wolfgang Amadeus Mozart&nbsp;?",
+    answer: 35,
+    linkForMore: "https://fr.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart",
+    attemptLimit: 4,
+  },
+  {
+    id: 59,
+    date: "2022-4-19",
+    title:
+      "Quelle est la distance minimale entre la Terre et Mars en dizaine de millions de km&nbsp;?",
+    answer: 5,
+    linkForMore: "https://fr.wikipedia.org/wiki/Mars_(plan%C3%A8te)",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
