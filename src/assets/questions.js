@@ -502,6 +502,33 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Mars_(plan%C3%A8te)",
     attemptLimit: 4,
   },
+  {
+    id: 60,
+    date: "2022-4-20",
+    title:
+      "En quelle année a été envoyé le premier courrier électronique&nbsp;?",
+    answer: 1971,
+    linkForMore: "https://fr.wikipedia.org/wiki/Courrier_%C3%A9lectronique",
+    attemptLimit: 4,
+  },
+  {
+    id: 60,
+    date: "2022-4-20",
+    title:
+      "En quelle année a été envoyé le premier courrier électronique&nbsp;?",
+    answer: 1971,
+    linkForMore: "https://fr.wikipedia.org/wiki/Courrier_%C3%A9lectronique",
+    attemptLimit: 4,
+  },
+  {
+    id: 61,
+    date: "2022-4-21",
+    title:
+      "Quelle est (en années) le record de longévité humaine officiellement reconnu&nbsp;?",
+    answer: 122,
+    linkForMore: "https://fr.wikipedia.org/wiki/Jeanne_Calment",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
