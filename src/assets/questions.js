@@ -529,6 +529,32 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Jeanne_Calment",
     attemptLimit: 4,
   },
+  {
+    id: 62,
+    date: "2022-4-22",
+    title: "En quelle année a débuté la guerre du Golfe&nbsp;?",
+    answer: 1990,
+    linkForMore: "https://fr.wikipedia.org/wiki/Guerre_du_Golfe",
+    attemptLimit: 4,
+  },
+  {
+    id: 63,
+    date: "2022-4-23",
+    title:
+      "Combien de jours il y a-t-il entre le 1er janvier 2022 et le 21 avril 2022&nbsp;?",
+    answer: 110,
+    linkForMore: "https://fr.wikipedia.org/wiki/Calendrier",
+    attemptLimit: 4,
+  },
+  {
+    id: 64,
+    date: "2022-4-24",
+    title:
+      "A combien de pixels de large minimum correspond le format d'image numérique 4K&nbsp;?",
+    answer: 4096,
+    linkForMore: "https://fr.wikipedia.org/wiki/4K",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
