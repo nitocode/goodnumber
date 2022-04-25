@@ -555,6 +555,59 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/4K",
     attemptLimit: 4,
   },
+  {
+    id: 65,
+    date: "2022-4-25",
+    title: "En quelle année Neil Armstrong a posé le pied sur la lune&nbsp;?",
+    answer: 1969,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Liste_des_hommes_ayant_march%C3%A9_sur_la_Lune",
+    attemptLimit: 4,
+  },
+  {
+    id: 66,
+    date: "2022-4-26",
+    title: "Quelle serait la température du noyau solaire (en Kelvin)&nbsp;?",
+    answer: 15000000,
+    linkForMore: "https://fr.wikipedia.org/wiki/Noyau_solaire",
+    attemptLimit: 4,
+  },
+  {
+    id: 67,
+    date: "2022-4-27",
+    title:
+      "Quelle taille (en mètres) fait le plus haut arbre connu au monde&nbsp;?",
+    answer: 116,
+    linkForMore: "https://fr.wikipedia.org/wiki/Hyperion_(arbre)",
+    attemptLimit: 4,
+  },
+  {
+    id: 68,
+    date: "2022-4-28",
+    title:
+      "En quelle année se sont déroulés les jeux olympiques de Barcelone&nbsp;?",
+    answer: 1992,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27%C3%A9t%C3%A9_de_1992",
+    attemptLimit: 4,
+  },
+  {
+    id: 69,
+    date: "2022-4-29",
+    title: "Combien de paires de chromosomes possède l'humain&nbsp;?",
+    answer: 23,
+    linkForMore: "https://fr.wikipedia.org/wiki/Chromosomes_humains",
+    attemptLimit: 4,
+  },
+  {
+    id: 70,
+    date: "2022-4-30",
+    title:
+      "En quelle année fut créée l'encyclopédie universelle Wikipedia&nbsp;?",
+    answer: 2001,
+    linkForMore: "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
