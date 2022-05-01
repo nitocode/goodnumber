@@ -616,6 +616,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Seconde_(temps)",
     attemptLimit: 4,
   },
+  {
+    id: 72,
+    date: "2022-5-2",
+    title: "Combien d'années a durée la guerre de cent ans&nbsp;?",
+    answer: 116,
+    linkForMore: "https://fr.wikipedia.org/wiki/Guerre_de_Cent_Ans",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
