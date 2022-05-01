@@ -608,6 +608,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Wikip%C3%A9dia",
     attemptLimit: 4,
   },
+  {
+    id: 71,
+    date: "2022-5-1",
+    title: "Combien de secondes il y a-t-il dans une heure&nbsp;?",
+    answer: 3600,
+    linkForMore: "https://fr.wikipedia.org/wiki/Seconde_(temps)",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
