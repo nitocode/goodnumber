@@ -624,6 +624,15 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Guerre_de_Cent_Ans",
     attemptLimit: 4,
   },
+  {
+    id: 73,
+    date: "2022-5-3",
+    title:
+      "En quelle année est sorti le 4ème épisode de Star Wars au cinéma&nbsp;?",
+    answer: 1977,
+    linkForMore: "https://fr.wikipedia.org/wiki/Star_Wars_au_cin%C3%A9ma",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
