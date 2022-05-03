@@ -633,6 +633,14 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Star_Wars_au_cin%C3%A9ma",
     attemptLimit: 4,
   },
+  {
+    id: 74,
+    date: "2022-5-4",
+    title: "Combien d'épisodes possède la série Mr.Bean&nbsp;?",
+    answer: 15,
+    linkForMore: "https://fr.wikipedia.org/wiki/Mr_Bean",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
