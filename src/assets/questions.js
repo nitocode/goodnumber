@@ -636,9 +636,17 @@ const questions = [
   {
     id: 74,
     date: "2022-5-4",
-    title: "Combien d'épisodes possède la série Mr.Bean&nbsp;?",
+    title: "Combien d'épisodes possède la série Mr Bean&nbsp;?",
     answer: 15,
     linkForMore: "https://fr.wikipedia.org/wiki/Mr_Bean",
+    attemptLimit: 4,
+  },
+  {
+    id: 75,
+    date: "2022-5-5",
+    title: "A quel numéro correspond le département de la Moselle&nbsp;?",
+    answer: 57,
+    linkForMore: "https://fr.wikipedia.org/wiki/Moselle_(d%C3%A9partement)",
     attemptLimit: 4,
   },
 ];
