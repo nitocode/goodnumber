@@ -649,6 +649,24 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Moselle_(d%C3%A9partement)",
     attemptLimit: 4,
   },
+  {
+    id: 76,
+    date: "2022-5-6",
+    title:
+      "En quelle année fut créé le concours Eurovision de la chanson&nbsp;?",
+    answer: 1956,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Concours_Eurovision_de_la_chanson",
+    attemptLimit: 4,
+  },
+  {
+    id: 77,
+    date: "2022-5-7",
+    title: "En quelle année est sorti pour la première fois le minitel&nbsp;?",
+    answer: 1980,
+    linkForMore: "https://fr.wikipedia.org/wiki/Minitel",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
