@@ -667,6 +667,24 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Minitel",
     attemptLimit: 4,
   },
+  {
+    id: 78,
+    date: "2022-5-8",
+    title:
+      "En quelle année a été peint le célèbre tableau La Nuit étoilée de Vincent van Gogh&nbsp;?",
+    answer: 1889,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/La_Nuit_%C3%A9toil%C3%A9e_(1889)",
+    attemptLimit: 4,
+  },
+  {
+    id: 79,
+    date: "2022-5-9",
+    title: "En quelle année la société Microsoft fut-elle créée&nbsp;?",
+    answer: 1976,
+    linkForMore: "https://fr.wikipedia.org/wiki/Microsoft",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
