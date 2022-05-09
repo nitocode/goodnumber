@@ -685,6 +685,109 @@ const questions = [
     linkForMore: "https://fr.wikipedia.org/wiki/Microsoft",
     attemptLimit: 4,
   },
+  {
+    id: 80,
+    date: "2022-5-10",
+    title: "Quelles sont les 5 premières décimales de Pi&nbsp;?",
+    answer: 14159,
+    linkForMore: "https://fr.wikipedia.org/wiki/Pi",
+    attemptLimit: 4,
+  },
+  {
+    id: 81,
+    date: "2022-5-11",
+    title: "En quelle année les premières imprimantes furent créées&nbsp;?",
+    answer: 1914,
+    linkForMore: "https://fr.wikipedia.org/wiki/Imprimante",
+    attemptLimit: 4,
+  },
+  {
+    id: 82,
+    date: "2022-5-12",
+    title:
+      "A combien de centaine de milliers de km la lumière se déplace-t-elle&nbsp;?",
+    answer: 300,
+    linkForMore: "https://fr.wikipedia.org/wiki/Imprimante",
+    attemptLimit: 4,
+  },
+  {
+    id: 83,
+    date: "2022-5-13",
+    title:
+      "A combien de centaine de milliers de km la lumière se déplace-t-elle&nbsp;?",
+    answer: 300,
+    linkForMore: "https://fr.wikipedia.org/wiki/Vitesse_de_la_lumi%C3%A8re",
+    attemptLimit: 4,
+  },
+  {
+    id: 84,
+    date: "2022-5-14",
+    title:
+      "Dans l'église catholique romaine actuelle, combien il y a-t-il eu de papes&nbsp;?",
+    answer: 266,
+    linkForMore: "https://fr.wikipedia.org/wiki/Liste_des_papes",
+    attemptLimit: 4,
+  },
+  {
+    id: 85,
+    date: "2022-5-15",
+    title: "Combien font 45 x 365&nbsp;?",
+    answer: 16425,
+    linkForMore: "https://fr.wikipedia.org/wiki/Calcul_mental",
+    attemptLimit: 4,
+  },
+  {
+    id: 86,
+    date: "2022-5-16",
+    title: "En quelle année fut inventé le code morse international&nbsp;?",
+    answer: 1832,
+    linkForMore: "https://fr.wikipedia.org/wiki/Code_Morse_international",
+    attemptLimit: 4,
+  },
+  {
+    id: 87,
+    date: "2022-5-17",
+    title: "En quelle année fut construit le premier four à micro-ondes&nbsp;?",
+    answer: 1947,
+    linkForMore: "https://fr.wikipedia.org/wiki/Four_%C3%A0_micro-ondes",
+    attemptLimit: 4,
+  },
+  {
+    id: 88,
+    date: "2022-5-18",
+    title:
+      "Au maximum, combien de mois peut durer la période de gestation d'un grand cachalot&nbsp;?",
+    answer: 16,
+    linkForMore:
+      "https://fr.wikipedia.org/wiki/Grand_cachalot#Cycle_de_vie_et_reproduction",
+    attemptLimit: 4,
+  },
+  {
+    id: 89,
+    date: "2022-5-19",
+    title:
+      "Selon le Guinness World Records, en quelle année est né Jonathan, la tortue géante vivante la plus vieille du monde&nbsp;?",
+    answer: 1832,
+    linkForMore: "https://fr.wikipedia.org/wiki/Jonathan_(tortue)",
+    attemptLimit: 4,
+  },
+  {
+    id: 90,
+    date: "2022-5-20",
+    title: "En quelle année s'est déroulée la bataille de Waterloo&nbsp;?",
+    answer: 1815,
+    linkForMore: "https://fr.wikipedia.org/wiki/Bataille_de_Waterloo",
+    attemptLimit: 4,
+  },
+  {
+    id: 91,
+    date: "2022-5-21",
+    title:
+      "En mètre cube, quel est le volume d'eau d'une piscine olympique de 3 mètres de profondeur&nbsp;?",
+    answer: 3750,
+    linkForMore: "https://fr.wikipedia.org/wiki/Piscine_olympique",
+    attemptLimit: 4,
+  },
 ];
 
 export default questions;
