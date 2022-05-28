@@ -10,6 +10,27 @@ const getNumberOfDaysSinceBeginning = () => {
   return Math.floor(dayDiff || 0);
 };
 
+const getRandomUnansweredQuestion = (answeredQuestionHistory) => {
+  let idsAnswered = [];
+  answeredQuestionHistory.forEach((elt) => {
+    idsAnswered.push(elt.id);
+  });
+  const unansweredQuestions = questions.filter((item) => {
+    return idsAnswered.indexOf(item.id) === -1;
+  });
+
+  // Get a random index
+  return unansweredQuestions[
+    Math.round(Math.random() * (unansweredQuestions.length - 1 - 0) + 0)
+  ];
+};
+
+const getQuestionById = (id) => {
+  return questions.filter((item) => {
+    return item.id === id;
+  })[0];
+};
+
 const getQuestionByDate = (date) => {
   // date ex: 2022-2-23
   return questions.filter((item) => {
@@ -44,6 +65,8 @@ const cleanNumber = (number) => {
 export {
   getNumberOfDaysSinceBeginning,
   getFormattedDate,
+  getQuestionById,
+  getRandomUnansweredQuestion,
   getQuestionByDate,
   getQuestionsUntilDate,
   getYesterdayDate,

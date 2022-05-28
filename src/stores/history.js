@@ -24,6 +24,10 @@ export const useHistoryStore = defineStore({
             new Date(date).setHours(0, 0, 0, 0)
         )[0];
     },
+    getQuestionHistoryById: (state) => {
+      return (id) =>
+        state.questionHistory.filter((item) => item.id === Number(id))[0];
+    },
     getFinishedQuestions: (state) => {
       return state.questionHistory.filter((item) => item.hasFinished);
     },

@@ -3,11 +3,18 @@ import * as confetti from "canvas-confetti";
 import { useHistoryStore } from "@/stores/history";
 import { useDatemodeStore } from "@/stores/datemode";
 import { ref, onMounted, nextTick, watch } from "vue";
+import { useRoute } from "vue-router";
 import useClipboard from "vue-clipboard3";
 import questions from "@/assets/questions";
-import { getQuestionByDate } from "@/scripts/helper";
+import {
+  getQuestionById,
+  getQuestionByDate,
+  getRandomUnansweredQuestion,
+} from "@/scripts/helper";
 
 const { toClipboard } = useClipboard();
+
+const route = useRoute();
 
 const historyStore = useHistoryStore();
 const datemodeStore = useDatemodeStore();
@@ -36,10 +43,8 @@ const reset = () => {
   resultCopied.value = false;
 };
 
-const initHistory = () => {
-  const todaysQuestion = historyStore.getQuestionHistoryByDate(
-    datemodeStore.currentDate
-  );
+const initHistory = (questionId) => {
+  const todaysQuestion = historyStore.getQuestionHistoryById(questionId);
 
   if (todaysQuestion) {
     answerList.value = todaysQuestion.attempts[0];
@@ -180,7 +185,7 @@ const share = async () => {
     textToShare += `Tentative n°${index + 1} : ${a.gap}\r\n`;
   });
 
-  textToShare += "\r\nhttps://smartnumdle.nitocode.com";
+  textToShare += `\r\nhttps://smartnumdle.nitocode.com?q=${question.value.id}`;
 
   try {
     await toClipboard(textToShare);
@@ -191,8 +196,16 @@ const share = async () => {
 };
 
 onMounted(() => {
-  question.value = getQuestionByDate(datemodeStore.currentDate);
-  initHistory();
+  // If q parameter
+  if (route.query.q) {
+    question.value = getQuestionById(Number(route.query.q));
+  } else {
+    question.value = getRandomUnansweredQuestion(
+      historyStore.getFinishedQuestions
+    );
+  }
+
+  initHistory(question.value.id);
 
   const confettiCanvas = document.getElementById("confetti");
   myConfetti.value = confetti.create(confettiCanvas, {
@@ -207,7 +220,7 @@ watch(
     if (question.value) {
       question.value = getQuestionByDate(datemodeStore.currentDate);
     }
-    initHistory();
+    initHistory(question.value.id);
   }
 );
 </script>
