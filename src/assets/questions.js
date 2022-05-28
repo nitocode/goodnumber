@@ -703,15 +703,6 @@ const questions = [
   },
   {
     id: 82,
-    date: "2022-5-12",
-    title:
-      "A combien de centaine de milliers de km la lumière se déplace-t-elle&nbsp;?",
-    answer: 300,
-    linkForMore: "https://fr.wikipedia.org/wiki/Imprimante",
-    attemptLimit: 4,
-  },
-  {
-    id: 83,
     date: "2022-5-13",
     title:
       "A combien de centaine de milliers de km la lumière se déplace-t-elle&nbsp;?",
@@ -720,7 +711,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 84,
+    id: 83,
     date: "2022-5-14",
     title:
       "Dans l'église catholique romaine actuelle, combien il y a-t-il eu de papes&nbsp;?",
@@ -729,7 +720,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 85,
+    id: 84,
     date: "2022-5-15",
     title: "Combien font 45 x 365&nbsp;?",
     answer: 16425,
@@ -737,7 +728,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 86,
+    id: 85,
     date: "2022-5-16",
     title: "En quelle année fut inventé le code morse international&nbsp;?",
     answer: 1832,
@@ -745,7 +736,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 87,
+    id: 86,
     date: "2022-5-17",
     title: "En quelle année fut construit le premier four à micro-ondes&nbsp;?",
     answer: 1947,
@@ -753,7 +744,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 88,
+    id: 87,
     date: "2022-5-18",
     title:
       "Au maximum, combien de mois peut durer la période de gestation d'un grand cachalot&nbsp;?",
@@ -763,7 +754,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 89,
+    id: 88,
     date: "2022-5-19",
     title:
       "Selon le Guinness World Records, en quelle année est né Jonathan, la tortue géante vivante la plus vieille du monde&nbsp;?",
@@ -772,7 +763,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 90,
+    id: 89,
     date: "2022-5-20",
     title: "En quelle année s'est déroulée la bataille de Waterloo&nbsp;?",
     answer: 1815,
@@ -780,7 +771,7 @@ const questions = [
     attemptLimit: 4,
   },
   {
-    id: 91,
+    id: 90,
     date: "2022-5-21",
     title:
       "En mètre cube, quel est le volume d'eau d'une piscine olympique de 3 mètres de profondeur&nbsp;?",
